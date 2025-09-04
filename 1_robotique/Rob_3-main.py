@@ -1,10 +1,10 @@
 """
 TP robot
 
-Nom: Jonin
-Classe: 3M1
-Date: 1 septembre
-No du robot: 4
+Nom: ...
+Classe: ...
+Date: ...
+No du robot: ...
 
 Dans ce TP vous allez apprendre comment
 - contrôler 2 moteurs
@@ -41,36 +41,36 @@ while True:
     
     # dessiner un trait, mesurer la distance, calculer la vitesse
     if prog == 0:
-        if pin_logo.is_touched():
-            robot.move(90, 100, 1000)
-            robot.move(-90, -100, 500)
+        if button_b.is_pressed():
+            robot.move(60, 60, 1000)
+            robot.move(-60, -60, 500)
 
     # dessiner un V, mesurer l'angle
     if prog == 1:
         if button_b.is_pressed():
-            robot.move(90, 100, 1000)
-            robot.move(100, 0, 600)
-            robot.move(90, 100, 1000)
+            robot.move(60, 60, 1000)
+            robot.move(60, -60, 1000)
+            robot.move(60, 60, 1000)
 
     # dessiner un S, mesurer l'angle de l'arc
     if prog == 2:
-        if button_b.is_pressed():
-            robot.move(60, 40, 1000)
-            robot.move(60, 60, 100)
-            robot.move(40, 60, 1000)
+        if button_b.get_presses():
+            robot.move(60, 0, 2000)
+            robot.move(0, 60, 4000)
             
     # dessiner un triangle
     if prog == 3:
         if button_b.is_pressed():
             for i in range(3):
-                robot.move(60, 60, 1000)
-                robot.move
+                robot.move(60, 60, 1000) #avance de 10cm
+                robot.move(60, -60, 1000) #tourne de 120 degrés 
 
     # dessiner un hexagone
     if prog == 4:
         if button_b.is_pressed():
             for i in range(6):
-                ...
+                robot.move(60, 60, 500) #avance de 5cm
+                robot.move(60, 60, 500) #tourne de 60 degrés
 
     # lire les 2 capteurs de lumière
     if prog == 5:
