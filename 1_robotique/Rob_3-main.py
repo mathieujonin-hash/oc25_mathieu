@@ -62,14 +62,14 @@ while True:
     if prog == 3:
         if button_b.is_pressed():
             for i in range(3):
-                robot.move(60, 60, 1000) #avance de 10cm
+                robot.move(60, 60, 1250) #avance de 10cm
                 robot.move(60, -60, 1000) #tourne de 120 degrés 
 
     # dessiner un hexagone
     if prog == 4:
         if button_b.is_pressed():
             for i in range(6):
-                robot.move(60, 60, 500) #avance de 5cm
+                robot.move(60, 60, 625) #avance de 5cm
                 robot.move(60, 60, 500) #tourne de 60 degrés
 
     # lire les 2 capteurs de lumière
