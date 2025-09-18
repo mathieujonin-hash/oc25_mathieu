@@ -1,29 +1,50 @@
-# Travail suivi 
+# Projet robotique
+option complémentaire en informatique du gymnase Bugnon 
 
+## Description
+
+Dans ce projet nous programons le robot Kitronik MOVE
+
+### Partie obligatoir
+
+* commence le parcours à la position A
+* va suivre une ligne
+* va détecter un objet avec le capteur ultrason (position B variable)
+* va attraper l'objet avec la pince
+* va ramener l'objet à la position A
+
+### Partie libre 
+
+Possibilitées :
+* une danse
+* un light show
 ## 16.09.25
 
 * preparer plan de ce qu'on va faire
 
 ## 18.09.25 
 
-* rajouté module "time_pulse_us" (permet de mesurer distances grace au echo)
+### time_pulse_us (permet de mesurer distances grace au echo)
 
-  "from microbit import *
-  from machine import time_pulse_us
+```
+from microbit import *
+from machine import time_pulse_us
 
-  trigger = pin13
-  echo = pin14
+trigger = pin13
+echo = pin14
 
-  trigger.write_digital(1)
-  trigger.write_digital(0)
-  distance = time_pulse_us()"
-### controler
-* # télécommande avec kitronik GAME controller
+trigger.write_digital(1)
+trigger.write_digital(0)
+distance = time_pulse_us()
+```
+
+### Controler
+```
+
 from microbit import *
 import radio
 import music
 
-# choisissez comme groupe le numéro de votre kit (1-15)
 g = 11
 display.scroll(g)
 
@@ -79,5 +100,8 @@ while True:
         msg = '0'
 
     display.show(msg)
+
     radio.send(msg)
     sleep(100)
+```
+
