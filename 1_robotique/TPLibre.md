@@ -105,4 +105,7 @@ while True:
     radio.send(msg)
     sleep(100)
 ```
-
+* Porque te vas :
+```
+porque_te_vas = ('g3:2','g3:1', 'f#3:1', 'g3:2', 'f#3:2', 'g3:2', 'a3:2', 'b3:2', 'g3:2',)
+```
