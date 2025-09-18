@@ -35,7 +35,8 @@ echo = pin14
 
 trigger.write_digital(1)
 trigger.write_digital(0)
-distance = time_pulse_us()
+distance = time_pulse_us(echo, 1)/2e6*340
+display.scroll(str(round(distance)))
 ```
 
 ### Controler
