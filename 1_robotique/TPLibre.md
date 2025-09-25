@@ -16,8 +16,9 @@ Dans ce projet nous programons le robot Kitronik MOVE
 ### Partie libre 
 
 Possibilitées :
-* une danse
-* un light show
+* 
+* joue le refrain de *Porque Te Vas*
+
 ## 16.09.25
 
 * preparer plan de ce qu'on va faire
@@ -110,7 +111,7 @@ while True:
 porque_te_vas = ('g3:2','g3:1', 'f#3:1', 'g3:2', 'f#3:2', 'g3:2', 'a3:2', 'b3:2', 'g3:2',)
 ```
 
-## 23. 09. 25
+## 23.09.25
 
 * Terminé porque te vas
 
@@ -121,3 +122,13 @@ porque_te_vas = ('g4:2','g4:1', 'f#4:1', 'g4:2', 'f#4:2', 'g4:2', 'f#4:2', 'g4:2
                  'g4:2', 'a4:2', 'bb4:2', 'd4:10', 'bb3:2', 'c4:2', 'd4:2', 'g3:2')
 
 ```
+## 25.09.25
+* tentative de réaliser le plan pobligatoir
+
+### Valeurs des couleurs (pour points A et B)
+
+* noir : 225 - 274 -> ligne suivie 
+*  : 275 - 325 -> point B
+* bleu : 400 - 500 -> point A
+* blanc : > 550 -> autour le parcours
+
