@@ -55,9 +55,11 @@ white = (100, 100, 100)
 
 colors = (black, red, orange, yellow, green, cyan, blue, magenta, white)
 
+np = neopixel.NeoPixel(pin8, 4)
 # all variables
 follow = False
 collect = False
+target = False
 
 hexa = '0123456789ABCDEF'
 v = 4 # vitesse actuelle
@@ -86,16 +88,9 @@ def tourner(a):
 while True:
     if button_a.was_pressed():
         robot.move(0, 0)
-        prog = (prog + 1) % 2
+        prog = (prog + 1) % 3
         display.show(prog)
         music.pitch(440, 20)
-    if msg :
-        msg = radio.receive()
-        if msg == 'a':
-            robot.move(0, 0)
-            prog = (prog + 1) % 2
-            display.show(prog)
-            music.pitch(440, 20)
         
     if prog == 0:
         msg = radio.receive()
@@ -120,6 +115,8 @@ while True:
                 robot.move(0, 0)
             elif msg == 'b':
                 follow = True
+        print(str(pin1.read_analog()), str(pin2.read_analog()))
+                
                 
         if follow :
             left = pin1.read_analog()
@@ -134,22 +131,46 @@ while True:
        
         if msg:
             if msg == '1':
-                follow = True
-            if d < 18:
-                if follow :
-                    follow = False
-                    collect = True
-                    robot.move(0, 0)
+                collect = True
+            elif msg == '2':
+                follow = False 
+                robot.move(0, 0)
 
         if follow :
-            left = pin1.read_analog()
-            right = pin2.read_analog()
-            d = (left - right) // 10 
-            print(d)
-            robot.move(10 - d, 10 + d)  
+            if 300 < pin1.read_analog() < 400 and 300 < pin2.read_analog() < 400:
+                    follow = False
+                    collect = True
+            else:
+                left = pin1.read_analog()
+                right = pin2.read_analog()
+                s = (left - right) // 10 
+                robot.move(10 - s, 10 + s) 
+                
         if collect :
+            if d < 20:
+                target = True
+                collect = False
+            else :
+                robot.move(40, -40)
+                
+        if target :
+            robot.move(0, 0, 700)
             robot.move(75, -80, 900)
             robot.goToPosition(1, 160)
-            robot.move(-75, -80, 1200)
+            sleep(200)
+            robot.move(-75, -80, 1000)
             robot.goToPosition(1, 20)
-            collect = False
+            sleep(200)
+            robot.move(75, 80, 1000)
+            target = False
+
+    if prog == 2:
+        msg = radio.receive()
+
+        if msg:
+            if msg == '2':
+                for i in range(3):
+                    robot.goToPosition(1, 160)
+                    sleep(250)
+                    robot.goToPosition(1, 20)
+                    sleep(250)
