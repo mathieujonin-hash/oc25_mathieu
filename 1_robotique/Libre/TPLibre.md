@@ -132,3 +132,45 @@ porque_te_vas = ('g4:2','g4:1', 'f#4:1', 'g4:2', 'f#4:2', 'g4:2', 'f#4:2', 'g4:2
 * bleu : 400 - 500 -> point A
 * blanc : > 550 -> autour le parcours
 
+## 02.10.25
+* longueur du robot : 18 cm (stylo-pince) et 5 cm (stylo-yeux)
+### Partie libre :
+```
+if prog == 2 : 
+        robot.goToPosition(1, 20)
+        msg = radio.receive()
+        if msg == '1':
+            music.play(porque_te_vas, wait=False, loop=False)
+            robot.move(-80,-80,1250)
+            robot.goToPosition(1, 150)
+            sleep(250)
+            robot.goToPosition(1, 20)
+            sleep(250)
+            robot.goToPosition(1, 150)
+            sleep(250)
+            robot.goToPosition(1, 20)
+            sleep(250)
+            robot.goToPosition(1, 150)
+            sleep(250)
+        
+            robot.move( 100, 100,1000)
+            robot.goToPosition(1, 20)
+            sleep(250)
+            robot.goToPosition(1, 150)
+            sleep(250)
+            robot.goToPosition(1, 20)
+            sleep(250)
+           
+            robot.move(-100,100,250)
+            robot.move(100,-100,250)
+            robot.move(-100,100,250)
+            robot.move(75,-75,2400)
+            robot.move(100,100,250)
+            robot.move(-100,100,250)
+            robot.move(100,-100,250)
+            robot.move(-75,75,2400)
+
+            robot.goToPosition(1, 150)
+            sleep(500)
+            robot.move(80,80,1250)
+```
