@@ -5,7 +5,10 @@ option complémentaire en informatique du gymnase Bugnon
 
 Dans ce projet nous programons le robot Kitronik MOVE
 
-### Partie obligatoir
+![robot](https://github.com/user-attachments/assets/7e97f0bc-6c91-436c-b6b3-ea2f15b4f636)
+
+
+### Partie obligatoire
 
 * commence le parcours à la position A
 * va suivre une ligne
@@ -123,7 +126,7 @@ porque_te_vas = ('g4:2','g4:1', 'f#4:1', 'g4:2', 'f#4:2', 'g4:2', 'f#4:2', 'g4:2
 
 ```
 ## 25.09.25
-* tentative de réaliser le plan pobligatoir
+* tentative de réaliser le plan obligatoire
 
 ### Valeurs des couleurs (pour points A et B)
 
