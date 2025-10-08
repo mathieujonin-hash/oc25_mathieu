@@ -157,7 +157,7 @@ import KitronikMOVEMotor
 import music
 import radio
 import neopixel
-import random
+import time
 from machine import time_pulse_us
 
 trigger = pin13
@@ -201,6 +201,10 @@ np = neopixel.NeoPixel(pin8, 4)
 # all variables
 follow = False
 target = False
+Timer = time.ticks_ms()
+Start = 0
+elapsed = 0
+back_home = False
 
 hexa = '0123456789ABCDEF'
 v = 4 # vitesse actuelle
@@ -266,30 +270,61 @@ while True:
             d = d // 10
             robot.move(10 - d, 10 + d)
             
-    if prog == 1:								#Partie obligatoire
+    if prog == 1:
         msg = radio.receive()
         d = distance()
         
+        # Met à jour le timer à chaque boucle
+        Timer = time.ticks_ms()
+        
         if msg:
             if msg == '1':
+                Start = Timer           # début du chrono aller
                 follow = True
-
-        if follow : 							#suivi de ligne
+                back_home = False
+    
+        # Phase 1 : suivi de ligne vers l'objet
+        if follow and not back_home:
             left = pin1.read_analog()
             right = pin2.read_analog()
-            s = (left - right) // 5 
-            robot.move(20 - s, 20 + s) 
+            s = (left - right) // 5
+            robot.move(20 - s, 20 + s)
+            
+            # Si un objet est détecté :
+            if d < 5:
+                follow = False
+                elapsed = Timer - Start  # durée aller (sans la récupération)
+                robot.move(0, 0)
+                sleep(300)
                 
-        if d < 5 and follow: 					#récupération de l'objet si vu
-            follow = False
-            robot.move(-75, -80, 1000)
-            robot.move(75, -80, 900)
-            robot.goToPosition(1, 160)
-            sleep(250)
-            robot.move(-75, -80, 1000)
-            robot.goToPosition(1, 20)
-            sleep(250)
-            robot.move(75, -80, 900)
+                # Récupération
+                robot.move(-75, -80, 1000)
+                robot.move(75, -80, 900)
+                robot.goToPosition(1, 160)
+                sleep(250)
+                robot.move(-75, -80, 1000)
+                robot.goToPosition(1, 20)
+                sleep(250)
+                robot.move(75, -80, 900)
+                
+                # Préparation au retour
+                back_home = True
+                Start = time.ticks_ms()   # redémarre le chrono pour le retour
+    
+        # Phase 2 : retour à la base
+        if back_home:
+            now = time.ticks_ms()
+            retour_elapsed = now - Start  # durée du retour actuelle
+    
+            if retour_elapsed < elapsed:  # encore du temps de retour
+                left = pin1.read_analog()
+                right = pin2.read_analog()
+                s = (left - right) // 5
+                robot.move(20 - s, 20 + s)
+            else:
+                # Temps de retour écoulé → stop
+                robot.move(0, 0)
+                back_home = False
 ```
 ### Partie musique et chorégraphie (Libre)
 ```
