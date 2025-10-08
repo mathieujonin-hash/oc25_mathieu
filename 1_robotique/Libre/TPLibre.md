@@ -305,7 +305,6 @@ while True:
                 robot.move(-75, -80, 1000)
                 robot.goToPosition(1, 20)
                 sleep(250)
-                robot.move(75, -80, 900)
                 
                 # Préparation au retour
                 back_home = True
