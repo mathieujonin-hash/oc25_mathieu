@@ -131,7 +131,7 @@ porque_te_vas = ('g4:2','g4:1', 'f#4:1', 'g4:2', 'f#4:2', 'g4:2', 'f#4:2', 'g4:2
 ### Valeurs des couleurs (pour points A et B)
 
 * noir : 225 - 274 -> ligne suivie 
-*  : 275 - 325 -> point B
+* rose : 275 - 325 -> point B
 * bleu : 400 - 500 -> point A
 * blanc : > 550 -> autour le parcours
 
