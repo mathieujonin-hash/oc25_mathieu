@@ -365,3 +365,9 @@ if prog == 2 :
             sleep(500)
             robot.move(80,80,1250)
 ```
+
+Problèmes rencontrés : 
+* Le robot n'arrive pas à gérer la quantité d'information demandée
+* Algorithme de suivi de ligne non fiable
+* Un des deux capteurs ultrasons à disposition ne fonctionnait pas
+* Un des membres de l'équipe ne posséde pas un ordinateur à domicile 
