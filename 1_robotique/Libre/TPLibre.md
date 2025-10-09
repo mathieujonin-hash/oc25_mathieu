@@ -126,7 +126,10 @@ porque_te_vas = ('g4:2','g4:1', 'f#4:1', 'g4:2', 'f#4:2', 'g4:2', 'f#4:2', 'g4:2
 
 ```
 ## 25.09.25
-* tentative de réaliser le plan obligatoire
+Idée de partie libre avec la détection d'une zone plus claire sur la piste. 
+On voulait que le robot avance jusqu'à ce que le point B soit détecter par le robot, 
+qu'il s'arrête dessus et qu'il tourne sur lui-même jusqu'à détecter un objet dans un 
+rayon de 30cm, qu'il le récupère et qu'il revienne au point B avec l'objet.
 
 ### Valeurs des couleurs (pour points A et B)
 
