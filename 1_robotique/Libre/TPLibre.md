@@ -131,15 +131,14 @@ On voulait que le robot avance jusqu'à ce que le point B soit détecter par le 
 qu'il s'arrête dessus et qu'il tourne sur lui-même jusqu'à détecter un objet dans un 
 rayon de 30cm, qu'il le récupère et qu'il revienne au point B avec l'objet.
 
-### Valeurs des couleurs (pour points A et B)
+### Valeurs nécessaire pour cette idée
 
 * noir : 225 - 274 -> ligne suivie 
 * rose : 275 - 325 -> point B
 * bleu : 400 - 500 -> point A
 * blanc : > 550 -> autour le parcours
-
-## 02.10.25
 * longueur du robot : 18 cm (stylo-pince) et 5 cm (stylo-yeux)
+
 ### Partie obligatoire:
 ```
 """
