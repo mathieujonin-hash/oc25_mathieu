@@ -23,7 +23,7 @@ h2,h3,h4,h5,h6 {
 .imp > strong {
     color:red;
 }
-
+/* mon commentaire */
 strong {
     text-decoration: underline;
 }
