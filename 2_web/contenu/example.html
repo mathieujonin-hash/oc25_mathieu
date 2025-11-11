@@ -3,15 +3,15 @@
 
 <html>
     <head>
-        <title>Ma première page web</title>
+        <title>Exemple Java</title>
         <meta charset="UTF-8">
     </head>
 
     <!-- commentaire -->
     <body>
-        <h1>Bienvenue sur ma première page web</h1>
+        <h1 id="bienvenue">Bienvenue sur ma première page web</h1>
 
-        <p>
+        <p class="important">
             <strong>Message de bienvenue très important :</strong>
             <br>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, modi soluta perferendis quidem vel sed ratione possimus, numquam aliquam magni enim molestiae, earum nemo sint eaque! Mollitia incidunt obcaecati excepturi!
@@ -75,37 +75,20 @@
 
         <h3>Liste non-numérotée</h3>
 
-        <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
+        <ul id="Liste">
+
         </ul>
 
-        <hr>
-
-        <h2>Section 3 – Liens hypertextes</h2>
-
-        <p>
-            Voici un lien interne vers la <a href="/2_web/page1.html">Page 1</a>
-            de mon site web. Si vous avez besoin d'autres choses, vous
-            pouvez faire une recherche sur <a href="http://www.google.com">Google</a>.
-        </p>
+        <button onclick="ajouter_perso()">ajouter personnage</button>
 
         <hr>
 
-        <h2>Section 4 – Images</h2>
-
-        <a href="http://www.google.com">
-            <img src="/2_web/images/téléchargement.jpeg" width="200">
-        </a>
-
-        <hr>
-
-        <h2>Section 5 – L'élément <em>iframe</em></h2>
+        <h2>Section 3 – L'élément <em>iframe</em></h2>
 
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5490.554591136669!2d6.6401737!3d46.522414399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c2e366c6e300b%3A0x661faf13da681fa9!2sGymnase%20du%20Bugnon!5e0!3m2!1sfr!2sch!4v1761829359247!5m2!1sfr!2sch" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       
     </body>
 
+    <script src="/2_web/js/exemple.js"></script>
 
 </html>
