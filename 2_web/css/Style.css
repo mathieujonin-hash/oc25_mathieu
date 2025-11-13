@@ -27,7 +27,7 @@ p {
 .picture {
     height: 100px;
     object-fit: cover;
-    border-radius: 100px;
+    border-radius: 50%;
     transition: transform 0.3s ease;
     margin: 10%;
 }
@@ -51,3 +51,12 @@ h3 { padding-left: calc(var(--decalage-) * 2); }
 h4 { padding-left: calc(var(--decalage-) * 3); }
 h5 { padding-left: calc(var(--decalage-) * 4); }
 h6 { padding-left: calc(var(--decalage-) * 5); }
+
+
+.Warrior {
+    background-color: red;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    margin: 5px;
+    display: inline-block;
+}
