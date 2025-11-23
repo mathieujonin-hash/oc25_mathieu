@@ -5,7 +5,7 @@
         <title>                                 
             Title of the game
         </title>
-        <meta charset=" UTF-8">                 
+        <meta charset="UTF-8">                 
         <link rel="stylesheet" href="/2_web/Site/css/style.css">     
     </head>
     
@@ -13,8 +13,11 @@
         <header class = "topbar">
             <nav class="menu">
                 <div class="left-items">
+                    <button class="hamburger" onclick="toggleMenu()">☰</button>
                     <a href="/2_web/Site/contenu/Index.html">Home</a>
-                    <a href="#">Search</a>
+                </div>
+                <div class="middle-items">
+                    Title of the game
                 </div>
                 <div class="right-items">
                     <a href="#">About</a>
@@ -22,6 +25,14 @@
                 </div>
             </nav>
         </header>
+
+        <nav class="side-menu" id="sideMenu">
+            <button class="close-btn" onclick="toggleMenu()">✖</button>
+            <a href="/2_web/Site/contenu/page1.html">Characters</a>
+            <a href="#">Search</a>
+            <a href="#">About</a>
+            <a href="#">Credits</a>
+        </nav>
 
         <div class="content">
             
@@ -71,13 +82,13 @@
 
                 <a href="https://www.youtube.com/@peytonburnham4316" class="image-link">
                     <img src="/2_web/images/peyton.jpg" class="picture"></a> <br>
-
-                <a href="/2_web/Site/contenu/page1.html">Personnages</a><br>
         
 
 
 
         </div>
+
+        <script src="/2_web/Site/js/Java.js"></script>
     </body>
 
 

@@ -6,56 +6,92 @@
             Les objets
         </title>
         <meta charset=" UTF-8">
+        <link rel="stylesheet" href="/2_web/Site/css/style.css">   
     </head>
 
 
     <body>
-        <h1>The Player</h1>
+        <header class = "topbar">
+            <nav class="menu">
+                <div class="left-items">
+                    <button class="hamburger" onclick="toggleMenu()">☰</button>
+                    <a href="/2_web/Site/contenu/Index.html">Home</a>
+                </div>
+                <div class="middle-items">
+                    Title of the game
+                </div>
+                <div class="right-items">
+                    <a href="#">About</a>
+                    <a href="#">Credits</a>
+                </div>
+            </nav>
+        </header>
 
-        <img src="/2_web/images/player.png" width = 150> <br>
-        <p>That's the player (click on it to see the animations and the other sides)</p> <br>
-        
+        <nav class="side-menu" id="sideMenu">
+            <button class="close-btn" onclick="toggleMenu()">✖</button>
+            <a href="/2_web/Site/contenu/Index.html">Home</a>
+            <a href="#">Search</a>
+            <a href="#">About</a>
+            <a href="#">Credits</a>
+        </nav>
 
+        <div class="page1">
 
+                <h1>The Player</h1>
 
-
-        <h1>The NPCs</h1>
-
-            <img src="/2_web/images/old_man.png" width = 150> <br>
-            <p>That's the old man supposed to guide you at the beggining of the game</p> <br>
-            
-
-
-
-        
-        <h1>The ennemies and bosses</h1>
-
-            <img src="/2_web/images/elf.png" width = 150> <br>
-            <p>A corrupted elf supposed to attack you in the forest zone</p> <br>
-
-            <img src="/2_web/images/mage.png" width = 150> <br>
-            <p>A mini boss fight, he is floating around and lauching spells at the player</p> <br>
-
-            <img src="/2_web/images/golem.png" width = 150> <br>
-            <p>A major boss, he is big, strong and glows when you start approching him</p> <br>
-
-            <img src="/2_web/images/devil.png" width = 150> <br>
-            <p>Supposedly the last boss fight in the game</p> <br>
-
-
+                <img src="/2_web/images/player.png" height="400px"> <br>
+                <p>That's the player (click on it to see the animations and the other sides)</p> <br>
+                
 
 
 
-        <h1>The backgrounds</h1>
 
-            <img src="/2_web/images/cemetery.png" width = 800> <br>
-            <p>The first zone in the game, a Cemetery where the player "awakens"</p> <br>
+                <h1>The NPCs</h1>
 
-            <img src="/2_web/images/forest.png" width = 800> <br>
-            <p>Another zone, here the elf can be encountered</p> <br>
+                    <img src="/2_web/images/old_man.png" height="400px"> <br>
+                    <p>That's the old man who guides you through the first steps in the game</p> <br>
+                    
 
-            <img src="/2_web/images/cave.png" width = 800> <br>
-            <p>Another zone</p> <br>
 
+                
+                <h1>The ennemies and bosses</h1>
+
+                <div class="ennemies">
+                    <div class="enemy">
+                        <img src="/2_web/images/elf.png">
+                        <p>A corrupted elf supposed to attack you in the forest zone</p>
+                    </div>
+
+                    <div class="enemy">
+                        <img src="/2_web/images/mage.png">
+                        <p>A mini boss fight, he is floating around and launching spells at the player</p>
+                    </div>
+
+                    <div class="enemy">
+                        <img src="/2_web/images/golem.png">
+                        <p>A major boss, he is big, strong and glows when you start approaching him</p>
+                    </div>
+
+                    <div class="enemy">
+                        <img src="/2_web/images/devil.png">
+                        <p>Supposedly the last boss fight in the game</p>
+                    </div>
+                </div>
+
+
+
+
+            <h1>The backgrounds</h1>
+
+                <img src="/2_web/GIF/parallaxeCemetery.gif" width = 800> <br>
+                <p>The first zone in the game, a Cemetery where the player "awakens"</p> <br>
+
+                <img src="/2_web/images/forest.png" width = 800> <br>
+                <p>Another zone, here the elf can be encountered</p> <br>
+
+                <img src="/2_web/images/cave.png" width = 800> <br>
+                <p>Another zone</p> <br>
+        </div>
+        <script src="/2_web/Site/js/Java.js"></script>
     </body>
 </html>
