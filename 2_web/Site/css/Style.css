@@ -10,7 +10,7 @@ body {
     left: 0;
     width: 100%;
     height: 100px;
-    background-color: #480c53;
+    background: linear-gradient(to bottom, #5d0f6b, black);
     color: white;
     display: flex;
     align-items: center;
