@@ -16,7 +16,7 @@ body {
     align-items: center;
     padding: 0 20px;
     z-index: 1000;
-    font-size: 40px;
+    font-size: 35px;
     
 }
 
@@ -118,7 +118,7 @@ h6 { padding-left: calc(var(--decalage-) * 5); }
 
 .ennemies {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     width: 80%;
     margin: 0 auto;
@@ -156,7 +156,7 @@ h6 { padding-left: calc(var(--decalage-) * 5); }
     left: -260px;
     width: 250px;
     height: 100%;
-    background-color: #32043a;
+    background: linear-gradient(to bottom right, #5d0f6b, black);
     padding-top: 120px;
     display: flex;
     flex-direction: column;
