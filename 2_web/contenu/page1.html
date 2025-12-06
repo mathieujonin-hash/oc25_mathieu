@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Les objets
+        </title>
+        <meta charset=" UTF-8">
+        <link rel="stylesheet" href="../css/Style.css">   
+    </head>
+
+
+    <body>
+        <header class = "topbar">
+            <nav class="menu">
+                <div class="left-items">
+                    <button class="hamburger" onclick="toggleMenu()">☰</button>
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="middle-items">
+                    Title of the game
+                </div>
+                <div class="right-items">
+                    <a href="#">About</a>
+                    <a href="#">Credits</a>
+                </div>
+            </nav>
+        </header>
+
+        <nav class="side-menu" id="sideMenu">
+            <button class="close-btn" onclick="toggleMenu()">✖</button>
+            <a href="index.html">Home</a>
+            <a href="#">Search</a>
+            <a href="#">About</a>
+            <a href="#">Credits</a>
+        </nav>
+
+        <div class="page1">
+
+                <h1>The Player</h1>
+
+                <img src="../../images/player.png"> <br>
+                <p>That's the player (click on it to see the animations and the other sides)</p> <br>
+                
+
+
+
+
+                <h1>The NPCs</h1>
+
+                    <img src="../../images/old_man.png" height="400px"> <br>
+                    <p>That's the old man who guides you through the first steps in the game</p> <br>
+                    
+
+
+                
+                <h1>The ennemies and bosses</h1>
+
+                <div class="ennemies">
+                    <div class="enemy">
+                        <img src="../../images/elf.png">
+                        <p>A corrupted elf supposed to attack you in the forest zone</p>
+                    </div>
+
+                    <div class="enemy">
+                        <img src="../../images/mage.png">
+                        <p>The Mage is a mini boss fight that you can encounter twice in the game, he is floating around and launching spells at the player</p>
+                    </div>
+
+                    <div class="enemy">
+                        <img src="../../images/golem.png">
+                        <p>The Golem is a major boss, he is big, strong and deals a lot of damage if he touches you</p>
+                    </div>
+                    <div class="enemy">
+                        <img src="../../images/golem_glow.png">
+                        <p>He starts glowing when you trigger his second phase and starts attacking faster</p>
+                    </div>
+
+                    <div class="enemy">
+                        <img src="../../images/devil.png">
+                        <p>The Nightmare King is the last boss of the game, he is the main villain in the story</p>
+                    </div>
+                    <div class="enemy">
+                        <img src="../../images/devil_final.png">
+                        <p>His second phase should not be taken lightly as he is much faster and deals more damage</p>
+                    </div>
+                </div>
+
+
+
+
+            <h1>The backgrounds</h1>
+
+                <img src="../../GIF/parallaxeCemetery.gif" width = 800> <br>
+                <p>The first zone in the game, a Cemetery where the player "awakens"</p> <br>
+
+                <img src="../../images/forest.png" width = 800> <br>
+                <p>Another zone, here the elf can be encountered</p> <br>
+
+                <img src="../../images/cave.png" width = 800> <br>
+                <p>Another zone</p> <br>
+        </div>
+        <script src="../js/Java.js"></script>
+    </body>
+</html>
