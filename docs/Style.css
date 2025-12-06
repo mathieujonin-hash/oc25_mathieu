@@ -75,7 +75,7 @@ p {
 }
 
 .picture {
-    height: 160px;
+    height: 100px;
     object-fit: cover;
     border-radius: 50%;
     transition: transform 0.3s ease;
@@ -116,6 +116,36 @@ h6 { padding-left: calc(var(--decalage-) * 5); }
     align-items: center;
 }
 
+#HomePage {
+    text-align: center;
+    align-items: center;
+}
+
+#HomePage p {
+    max-width: 700px;
+} 
+
+#HPGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.HPLinks p {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 15px auto;
+}
+
+.HPLinks img {
+    display: block;
+    margin: 0 auto;
+}
+
 .ennemies {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -132,11 +162,9 @@ h6 { padding-left: calc(var(--decalage-) * 5); }
 }
 
 .enemy p {
-    background-color: #7b42ff;
     padding: 10px;
     border-radius: 10px;
-    color: white;
-    max-height: 400px;
+    max-width: 400px;
     margin: 15px auto 0;
 }
 
@@ -156,7 +184,7 @@ h6 { padding-left: calc(var(--decalage-) * 5); }
     left: -260px;
     width: 250px;
     height: 100%;
-    background: linear-gradient(to bottom right, #5d0f6b, black);
+    background: linear-gradient(to bottom right, #3e0a47, black);
     padding-top: 120px;
     display: flex;
     flex-direction: column;
