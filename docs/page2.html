@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Les objets
+        </title>
+        <meta charset=" UTF-8">
+        <link rel="stylesheet" href="Style.css">   
+    </head>
+
+
+    <body>
+        <header class = "topbar">
+            <nav class="menu">
+                <div class="left-items">
+                    <button class="hamburger" onclick="toggleMenu()">☰</button>
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="middle-items">
+                    Title of the game
+                </div>
+                <div class="right-items">
+                    <a href="#">About</a>
+                    <a href="#">Credits</a>
+                </div>
+            </nav>
+        </header>
+
+        <nav class="side-menu" id="sideMenu">
+            <button class="close-btn" onclick="toggleMenu()">✖</button>
+            <a href="index.html">Home</a>
+            <a href="page1.html">Characters</a>
+            <a href="#">About</a>
+            <a href="#">Credits</a>
+        </nav>
+
+        <div class="page1">
+            <h1>The Zones</h1>
+
+                <img src="parallaxeCemetery.gif" width = 800> <br>
+                <p>The first zone in the game, a Cemetery where the player "awakens"</p> <br>
+
+                <img src="parallaxeForest.gif" width = 800> <br>
+                <p>Another zone, here the elf can be encountered</p> <br>
+
+                <img src="parallaxeCave.gif" width = 800> <br>
+                <p>Another zone</p> <br>
+        </div>
+        <script src="Java.js"></script>
+    </body>
+</html>
