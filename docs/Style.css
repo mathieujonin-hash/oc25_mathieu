@@ -220,3 +220,8 @@ h6 { padding-left: calc(var(--decalage-) * 5); }
     color: white;
     cursor: pointer;
 }
+
+canvas {
+    background-color: white;
+    border: 5px solid rgb(75, 78, 246);
+}
