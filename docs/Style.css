@@ -116,10 +116,35 @@ h6 { padding-left: calc(var(--decalage-) * 5); }
 .page1 {
     text-align: center;
     align-items: center;
+    position: relative;
 }
 
 .page1 p {
     max-width: 500px;
+    z-index: 20;
+}
+
+.page1 img {
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter:
+        drop-shadow(0 0 40px rgba(255, 255, 255, 0.8))
+        drop-shadow(0 0 80px rgba(255, 255, 255, 0.5));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page1 img::before {
+    content: "";
+    position: absolute;
+    inset: -60px;
+    background: radial-gradient(circle, #5d0f6b 0%, black 75%);
+    z-index: -1;
+}
+
+.page1 h2 {
+    text-align: center;
 }
 
 #HomePage {
