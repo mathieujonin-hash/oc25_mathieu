@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Knightmare "A Voice in the Dark"
+        </title>
+        <meta charset=" UTF-8">
+        <link rel="stylesheet" href="Style.css">   
+    </head>
+
+
+    <body>
+        <header class = "topbar">
+            <nav class="menu">
+                <div class="left-items">
+                    <button class="hamburger" onclick="toggleMenu()">☰</button>
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="middle-items">
+                    Knightmare "A Voice in the Dark"
+                </div>
+                <div class="right-items">
+                    <a href="about.html">About</a>
+                    <a href="credits.html">Credits</a>
+                </div>
+            </nav>
+        </header>
+
+        <nav class="side-menu" id="sideMenu">
+            <button class="close-btn" onclick="toggleMenu()">✖</button>
+            <a href="index.html">Home</a>
+            <a href="page2.html">Areas</a>
+            <a href="about.html">About</a>
+            <a href="credits.html">Credits</a>
+        </nav>
+
+        <div class="page1">
+
+            <h1>The Characters</h1>
+
+                <h2>The Player</h2>
+
+                <img src="player.png"> <br>
+                <p>Well, here you are... Don't you recognize yourself? That's right, this is the player's
+                    appearance. You are supposed to be followed by a will-o'-the-wisp all the way from the beggining
+                    and later discover that it is actually your spirit. 
+                </p> <br>
+                
+
+
+
+
+                <h2>The NPCs</h2>
+
+                    <img src="old_man.png" height="400px"> <br>
+                    <p>
+                        That's the old man who guides you through the first steps in the game. 
+                        He tells you a bit about what happend in the kingdom and gives you some clues about what
+                        to do next.
+                    </p>
+                    
+
+
+                
+                <h2>The ennemies and bosses</h2>
+
+                <div class="ennemies">
+                    <div class="enemy">
+                        <img src="elf.png">
+                        <p>The corrupted elf comes to you when you enter the forest. At first, he acts almost kindly
+                            but as you discover that he works for the Nigthmare King, he begins to attack you.
+                        </p>
+                    </div>
+
+                    <div class="enemy">
+                        <img src="mage.png">
+                        <p>The Mage is a mini boss fight that you can encounter twice in the game, he is 
+                            floating around and launching spells at the player.</p>
+                    </div>
+
+                    <div class="enemy">
+                        <img src="golem.png">
+                        <p>The Golem is a major boss, he is big, strong and deals a lot of damage if he touches you.</p>
+                    </div>
+                    <div class="enemy">
+                        <img src="golem_glow.png">
+                        <p>He starts glowing when you trigger his second phase and starts attacking faster.</p>
+                    </div>
+
+                    <div class="enemy">
+                        <img src="devil.png">
+                        <p>The Nightmare King is the last boss of the game, he is the main villain in the story.</p>
+                    </div>
+                    <div class="enemy">
+                        <img src="devil_final.png">
+                        <p>His second phase should not be taken lightly as he is much faster and deals more damage.</p>
+                    </div>
+                </div>
+        </div>
+        <script src="Java.js"></script>
+    </body>
+</html>

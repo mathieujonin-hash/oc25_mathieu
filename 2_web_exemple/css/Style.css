@@ -1,0 +1,62 @@
+body {
+    background-color:black;
+    color:white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color:#d64dee;
+}
+
+h2, h3, h4, h5, h6 {
+    color:#d64dee;
+    font-size: 25px;
+}
+
+p {
+    background: linear-gradient(to bottom right, rgb(75, 78, 246), rgb(126, 32, 193));
+    padding: 15px 15px 15px 15px;
+    border-radius: 10px;
+    line-height: 20px;
+    margin: 5px;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.picture {
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    margin: 10%;
+}
+
+.image-link {
+    display: inline-block;
+    overflow: visible;
+    border-radius: 0px;
+}
+
+.image-link:hover .picture {
+    transform: scale(1.05);
+}
+
+:root {
+  --decalage-: 20px;
+}
+
+h2 { padding-left: calc(var(--decalage-) * 1); }
+h3 { padding-left: calc(var(--decalage-) * 2); }
+h4 { padding-left: calc(var(--decalage-) * 3); }
+h5 { padding-left: calc(var(--decalage-) * 4); }
+h6 { padding-left: calc(var(--decalage-) * 5); }
+
+
+.Warrior {
+    background-color: red;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    margin: 5px;
+    display: inline-block;
+}
