@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d0muixt2ciiuh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5k2b"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cv3p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01y1d"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="Lamp" type="Node3D" unique_id=1706541985]
+
+[node name="Lamp" type="CSGCombiner3D" parent="." unique_id=604836643]
+
+[node name="Lamp" type="CSGCylinder3D" parent="Lamp" unique_id=744840409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.85, 0)
+radius = 0.009
+height = 0.3
+material = SubResource("StandardMaterial3D_x5k2b")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Lamp/Lamp" unique_id=805350929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1500001, 0)
+radius = 0.2
+height = 0.2
+cone = true
+material = SubResource("StandardMaterial3D_8cv3p")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Lamp/Lamp" unique_id=754911685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24683332, 0)
+radius = 0.05
+material = SubResource("StandardMaterial3D_01y1d")

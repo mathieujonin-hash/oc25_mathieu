@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://biwgnqepvc8k3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xowi"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a202f"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0tk4"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3fl7"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
+albedo_color = Color(0.8738655, 4.7168137e-06, 6.738305e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
+albedo_color = Color(1, 0.1882353, 0.45490196, 1)
+
+[node name="ex3" type="Node3D" unique_id=2122595885]
+
+[node name="tube" type="CSGCylinder3D" parent="." unique_id=1670960936]
+sides = 24
+material = SubResource("StandardMaterial3D_4xowi")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="tube" unique_id=1585487587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+radius = 0.6
+height = 0.27
+sides = 48
+material = SubResource("StandardMaterial3D_a202f")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="tube/CSGCylinder3D" unique_id=1527511483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+operation = 2
+radius = 0.4
+height = 3.0
+sides = 24
+material = SubResource("StandardMaterial3D_noarx")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="tube" unique_id=804771207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+operation = 2
+radius = 0.4
+height = 3.0
+sides = 24
+material = SubResource("StandardMaterial3D_a0tk4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1073399063]
+transform = Transform3D(1, 0, 0, 0, 0.8320606, 0.5546847, 0, -0.5546847, 0.8320606, 0, 1.7883952, 2)
+
+[node name="plant" type="CSGCylinder3D" parent="." unique_id=618193548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+radius = 0.05
+height = 1.0
+material = SubResource("StandardMaterial3D_r3fl7")
+
+[node name="lip1" type="CSGTorus3D" parent="plant" unique_id=1432307912]
+transform = Transform3D(1, 0, 0, 0, 0.62819386, 0.6224454, 0, -0.77805674, 0.5025551, 0, 0.6847106, 0.084)
+inner_radius = 0.21
+outer_radius = 0.45
+sides = 48
+ring_sides = 12
+
+[node name="lip2" type="CSGTorus3D" parent="plant" unique_id=2050048928]
+transform = Transform3D(1, 0, 0, 0, 0.62796307, -0.62259454, 0, 0.7782431, 0.5023705, 0, 0.6846098, -0.084)
+inner_radius = 0.21
+outer_radius = 0.45
+sides = 48
+ring_sides = 12
+
+[node name="redsphere" type="CSGSphere3D" parent="plant" unique_id=1793808191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58321357, 0)
+radius = 0.45
+radial_segments = 48
+rings = 12
+material = SubResource("StandardMaterial3D_jka67")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="plant/redsphere" unique_id=1317909926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3636024, 0)
+operation = 2
+radius = 0.35
+radial_segments = 48
+rings = 12
+material = SubResource("StandardMaterial3D_jka67")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="plant/redsphere" unique_id=167163494]
+transform = Transform3D(1, 0, 0, 0, -0.99999994, -8.742277e-08, 0, 8.742277e-08, -0.99999994, 0.37264794, 0.3894155, 0)
+operation = 2
+radius = 0.3
+height = 1.157
+cone = true
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="plant/redsphere" unique_id=1859960218]
+transform = Transform3D(1, 0, 0, 0, -0.99999994, -8.742277e-08, 0, 8.742277e-08, -0.99999994, -0.373, 0.389, 0)
+operation = 2
+radius = 0.3
+height = 1.157
+cone = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="plant/redsphere" unique_id=1532399053]
+transform = Transform3D(0.19171332, 0, 0.028486868, 0, 0.2, 0, -0.056973737, 0, 0.09585666, 0.14120626, 0.07616222, 0.3734876)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="plant/redsphere" unique_id=683413889]
+transform = Transform3D(0.19190806, 0, -0.028157117, -0.008716282, 0.1975898, -0.014851705, 0.055635594, 0.030955866, 0.09479769, -0.11786869, -0.05348265, 0.39117217)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="plant/redsphere" unique_id=1176527072]
+transform = Transform3D(0.08590309, -0.023137975, -0.08956186, -0.008716286, 0.19758983, -0.014851709, 0.18040146, 0.020564526, 0.04192973, -0.3555365, -0.05348265, 0.19423854)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="plant/redsphere" unique_id=328496564]
+transform = Transform3D(-0.09746432, -0.059625156, -0.082075454, 0.0028877165, 0.1874071, -0.034893584, 0.17462058, -0.03637892, -0.04523335, -0.3555365, -0.18667567, -0.055876136)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="plant/redsphere" unique_id=1929807526]
+transform = Transform3D(0.16630375, 0.08854782, -0.033549767, -0.06619522, 0.17598411, 0.034087412, 0.08922582, -0.03448032, 0.08782059, -0.13203827, 0.13001609, 0.35333633)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="plant/redsphere" unique_id=901713758]
+transform = Transform3D(0.16630377, 0.08854782, -0.033549774, -0.09654385, 0.17495339, -0.004201701, 0.054975823, 0.039377857, 0.094110325, 0.14897007, 0.13001609, -0.34984875)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="plant/redsphere" unique_id=1683882219]
+transform = Transform3D(-0.095766164, 0.038512588, -0.08565275, -0.055727966, 0.17837341, 0.035627764, 0.16650295, 0.08185189, -0.037339807, 0.37699026, -0.13635397, 0.0499835)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="plant/redsphere" unique_id=561168597]
+transform = Transform3D(-0.16324288, -0.004882939, -0.057723206, -0.05572797, 0.17837341, 0.035627764, 0.10122326, 0.09032778, -0.07347575, 0.27406615, -0.13635397, 0.27848166)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="plant/redsphere" unique_id=741592380]
+transform = Transform3D(-0.11215991, -0.09045014, 0.069352224, -0.055727974, 0.17837341, 0.035627764, -0.15593119, 0.0013115015, -0.06261727, 0.3026001, -0.03675413, -0.24364692)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="plant/redsphere" unique_id=353492631]
+transform = Transform3D(-0.18093362, -0.07532442, -0.019932467, -0.079561815, 0.18282431, 0.007829853, 0.030543767, 0.030025426, -0.09768, -0.04523343, 0.05792284, -0.3930524)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="plant/redsphere" unique_id=60335588]
+transform = Transform3D(-0.17592375, -0.076894626, 0.028009113, -0.09186007, 0.16793329, -0.028983422, -0.024749715, -0.07671805, -0.09151745, 0.09627336, -0.12108004, -0.37353915)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="plant/redsphere" unique_id=2075453535]
+transform = Transform3D(-0.14841999, -0.108407795, -0.039430972, -0.06954259, 0.16284692, -0.046488445, 0.1146094, -0.041576996, -0.07927178, -0.17733997, -0.12108004, -0.33985776)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="plant/redsphere" unique_id=234858009]
+transform = Transform3D(-0.07113017, -0.18591054, -0.009718087, -0.06592302, 0.04440943, -0.09176314, 0.17491317, -0.058865003, -0.03853666, -0.13527691, -0.36884356, -0.14998788)
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="plant" unique_id=552432257]
+transform = Transform3D(0.3, 0, 0, 0, 0.4, 0, 0, 0, 0.3, 0, 0.6153866, 0.15809268)
+material = SubResource("StandardMaterial3D_i5arm")

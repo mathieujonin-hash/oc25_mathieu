@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bfro4mg6x63mk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4o3f6"]
+albedo_color = Color(1, 0.8509804, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5vuv"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka7wq"]
+albedo_color = Color(1, 0.64705884, 0, 1)
+
+[node name="Candle" type="Node3D" unique_id=682713752]
+
+[node name="Candle" type="CSGCombiner3D" parent="." unique_id=773910196]
+
+[node name="Candle" type="CSGCylinder3D" parent="Candle" unique_id=1820481581]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.7080346, 0.7843857, 1.617351)
+radius = 0.01
+height = 0.07
+material = SubResource("StandardMaterial3D_4o3f6")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Candle/Candle" unique_id=2039387264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03605026, 0)
+radius = 0.001
+height = 0.009
+material = SubResource("StandardMaterial3D_v5vuv")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Candle/Candle" unique_id=1725339945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043713987, 0)
+radius = 0.003
+height = 0.009
+cone = true
+material = SubResource("StandardMaterial3D_ka7wq")

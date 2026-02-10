@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://hc4qf5ov2xqe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bisa2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5vuv"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka7wq"]
+albedo_color = Color(1, 0.31764707, 0, 1)
+
+[node name="RoomWindowed" type="Node3D" unique_id=656323252]
+
+[node name="Walls" type="CSGCombiner3D" parent="." unique_id=728649445]
+
+[node name="Walls" type="CSGBox3D" parent="Walls" unique_id=1572886692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+size = Vector3(5.2, 5.2, 5.2)
+material = SubResource("StandardMaterial3D_bisa2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Walls/Walls" unique_id=1560405561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
+operation = 2
+size = Vector3(5.2, 4.8, 5.2)
+material = SubResource("StandardMaterial3D_v5vuv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Walls/Walls" unique_id=887100504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10757446, 0.31232882, -2.650166)
+operation = 2
+size = Vector3(3.3521118, 2.0683594, 1)
+material = SubResource("StandardMaterial3D_ka7wq")

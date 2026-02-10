@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bgnqkguy3ds7t"]
+
+[ext_resource type="Script" uid="uid://dgge4esqd6d25" path="res://directional_light_3d.gd" id="1_hdgcg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xowi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
+material = SubResource("StandardMaterial3D_4xowi")
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a202f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
+material = SubResource("StandardMaterial3D_a202f")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_we4ua"]
+
+[sub_resource type="Sky" id="Sky_r3fl7"]
+sky_material = SubResource("ProceduralSkyMaterial_we4ua")
+
+[sub_resource type="Environment" id="Environment_jka67"]
+background_mode = 2
+sky = SubResource("Sky_r3fl7")
+ambient_light_color = Color(0.827451, 0.24313726, 0.105882354, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wc5p8"]
+material = SubResource("StandardMaterial3D_i5arm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsk3o"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4arys"]
+material = SubResource("StandardMaterial3D_jsk3o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iypd"]
+metallic = 1.0
+roughness = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_tereu"]
+material = SubResource("StandardMaterial3D_6iypd")
+
+[node name="Node3D" type="Node3D" unique_id=1868738905]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1828059584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018206835, -0.4987154, -0.0020635128)
+mesh = SubResource("BoxMesh_4xowi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1631308532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_noarx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1056869968]
+environment = SubResource("Environment_jka67")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=859231742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4529674, 3.7189612, 0.69387937)
+light_color = Color(0.827451, 0.24313726, 0.105882354, 1)
+light_energy = 16.0
+light_size = 0.01
+shadow_enabled = true
+shadow_blur = 10.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=865342110]
+transform = Transform3D(-0.15569307, -0.5789844, 0.8003354, 5.1241287e-08, 0.8102156, 0.586132, -0.9878055, 0.09125673, -0.12614492, 0.61099005, 4.4773393, 2.191805)
+light_color = Color(0.6392157, 0, 0.39607844, 1)
+light_energy = 16.0
+shadow_enabled = true
+spot_angle = 31.430935
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1348212452]
+transform = Transform3D(0.752132, 0.39981392, -0.5238764, -0.27710292, 0.9131205, 0.2990405, 0.5979227, -0.079750285, 0.79757667, 0, 1.1962086, 3.807036)
+shadow_enabled = true
+shadow_bias = 0.0
+script = ExtResource("1_hdgcg")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=418119142]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=277750632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13639164, 1.6542773, 2.213338)
+mesh = SubResource("SphereMesh_wc5p8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D" unique_id=1766862281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13639164, 2.640424, 2.213338)
+mesh = SubResource("SphereMesh_4arys")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D" unique_id=1989361929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13639164, 3.6921008, 2.213338)
+mesh = SubResource("SphereMesh_tereu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2048418739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -1)
+operation = 2
+size = Vector3(4, 4, 4)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=473077342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.25, -0.25)
+operation = 2
+size = Vector3(3.5, 3.5, 3.5)
