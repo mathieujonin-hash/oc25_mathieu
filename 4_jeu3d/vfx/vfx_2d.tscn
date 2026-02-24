@@ -5,7 +5,8 @@ particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 
 [sub_resource type="Gradient" id="Gradient_kqe62"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.66803277, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bkak3"]
 gradient = SubResource("Gradient_kqe62")
@@ -18,7 +19,7 @@ initial_velocity_min = 100.0
 initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
 scale_max = 5.0
-color = Color(0.98039216, 0.14509805, 0.79607844, 1)
+color = Color(0.8020983, 0, 0.11112321, 1)
 color_ramp = SubResource("GradientTexture1D_bkak3")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_26dmw"]
@@ -59,7 +60,7 @@ metadata/_edit_use_anchors_ = true
 [node name="PointEmition3" type="GPUParticles2D" parent="." unique_id=1713106296]
 position = Vector2(-124, 162)
 amount = 1000
-explosiveness = 0.7
+explosiveness = 0.6
 process_material = SubResource("ParticleProcessMaterial_1g83g")
 
 [node name="Label" type="Label" parent="PointEmition3" unique_id=869627376]
@@ -93,7 +94,7 @@ metadata/_edit_use_anchors_ = true
 [node name="SphereEmition2" type="GPUParticles2D" parent="." unique_id=848253082]
 position = Vector2(-127, -1)
 amount = 50
-lifetime = 0.09999999999999999
+lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_jxgxf")
 
 [node name="Label" type="Label" parent="SphereEmition2" unique_id=174542903]
