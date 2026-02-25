@@ -10,3 +10,7 @@ Au-delà du trophée, cette réussite récompense des mois d’entraînement et 
 
 <img width="400" height="400" alt="image" src="/3_ia/generated-image-1.png" />
 <img width="400" height="400" alt="image" src="/3_ia/ChatGPT Image 25 févr. 2026, 21_12_12.png" /> 
+
+
+
+Le texte rédigé est facilement identifiable à la lecture comme étant généré par IA et les images également. Le travail nécessaire pour créer la seconde photo était plus compliqué que prévu.
