@@ -8,3 +8,5 @@ Selon leur enseignant, leur victoire repose autant sur leur solide préparation 
 
 Au-delà du trophée, cette réussite récompense des mois d’entraînement et témoigne du dynamisme des activités scientifiques proposées par le Gymnase du Bugnon. Les lauréats espèrent désormais inspirer d’autres élèves à rejoindre l’équipe de mathématiques et à relever, eux aussi, de nouveaux défis.
 
+<img width="400" height="400" alt="image" src="/3_ia/generated-image-1.png" />
+<img width="400" height="400" alt="image" src="/3_ia/ChatGPT Image 25 févr. 2026, 21_12_12.png" /> 
