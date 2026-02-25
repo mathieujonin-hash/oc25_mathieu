@@ -9,4 +9,8 @@ Pour la deuxième image :
 "Il y a 2 fois la même personne. Enlève le garçon au pull rouge du milieu et garde celuui de droite puis rapproche les deux personnes de gauche des deux personnes de droite"  
 <img width="400" height="400" alt="image" src="/3_ia/ChatGPT Image 25 févr. 2026, 21_07_27.png" />  
 "Tu en as enlever un de trop. Remet le garçon au pull rouge à gauche"  
+<img width="400" height="400" alt="image" src="/3_ia/ChatGPT Image 25 févr. 2026, 21_12_12.png" />  
+  
+Les deux images finales sont donc:  
+<img width="400" height="400" alt="image" src="/3_ia/generated-image-1.png" />  
 <img width="400" height="400" alt="image" src="/3_ia/ChatGPT Image 25 févr. 2026, 21_12_12.png" />
