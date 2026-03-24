@@ -83,3 +83,75 @@ Cycle de vie d'un LLM :
         Quantification (réduire le modèle) et distillation 
             Exemple Q : réduire palette de couleur d'une image
             Exemple D : image plus petite, mais qui a appris du grand modèle -> pas entraînement from scratch
+
+
+Fonctionnement d'un LLM (entraînement)
+
+        Lien avec le programme du gymnase (Math et Info)
+                Programmation Python (langage de choix pour l'IA)
+                Architecture des ordinateurs (rôle des CPU/GPU, mémoire pour pérformance des modèles)
+                Systèmes d'équations (base des calclus dans les modèles)
+                Analyse (Chercher les minimums et les dérivées d'une fonction)
+                Probabilités (Distibution du résultat d'un modèle, échantillonnage)
+                        exemple, Chat GPT : P(mot suivant | mots avant)
+
+        Fonctionnement et entrainement 
+                Machine learning :
+                        Y = f_têta(X)
+                                X : prompt, input, ... de l'Utilisateur
+                                Y : réponse, prédition, ... du Modèle
+                                f : règle pour passer de l'input à l'output
+                                têta : variable qui paramétrisent les règles 
+                        têta est en général appris ou dérivée par l'IA
+                        f devient en général une boîte noir car trop gros pour savoir ce qui se passe dedans
+                        exemple :
+                                TYPE                  X         Y       Exemples
+                                text to text        prompt   réponse    chat GPT
+                                text to image       prompt    image     MidJourney
+                                text to video       prompt    vidéo     Sora
+                                image               image     classe    AlexNet
+                                ...                  ...       ...      ...
+                        
+                        Données d'entraînement :
+                                Les paramètres sont déterminés par les données d'apprentissage
+                                Les données consistent en des couples de données d'entrée / de sortie (Xi,Yi)
+                        
+                        Fonction de coût : 
+                                L'apprentissage consiste à trouver têta tel que : 
+                                        Yi =(vague) f_têta(Xi), pour le maximum de couples de données (Xi, Yi)
+                                Fonction de coût qui mesure la distance entre la prédiction du modèle et la vraie valeur pour minimiser cette distance
+                                
+                        Exemple : La régression linéaire
+                                Modèle linéaire :                                               Taille(âge)
+                                - Entrée : un nombre X                                          X = âge 
+                                - Sortie : un autre nombre Y                                    Y = taille
+                                - Données : des couples (Xi, Yi)                                (0, 50cm), (3, 110), ...
+                                - Modèle : f_têta(X) = aX + b                                   
+                                - Paramètre : têta = (a, b)                                     
+                                - Fonction de coup : 
+                                        ei = F_coût(f_têta(Xi), Yi) = (f_têta(Xi) - Yi)^2
+                                
+                        Boucle d'entraînement : 
+                                1) Tirer un batch (Xi, Yi) depuis les données
+                                2) Calculer la prédiction Yi = f_têta(Xi) - forward pass (avancer dans le réseau de neurones)
+                                3) Mesurer l'erreur ei = ...
+                                4) Ajuster têta pour réduire ei - backpropagation (ajustement de poids)
+                                5) Répéter
+                        
+                        Ajustement des paramètres (poids) :
+                                dérivation et optimisation de fonction
+                                En dimension 1 :
+                                        - Inversion de variables : h(têta) = F_coût(Yi, f_têta(Xi))
+                                        - But trouver le minimum h'(têta) = 0
+                                        - Problème : en général impossible à résoudre analytiquement
+                                        - Solution : algorithme d'optimisation numérique, on prend la dérivée au point où on est 
+                                                     -> baisse/augmente têta pour se rapprocher de la solution (0)
+                                
+                                En pratique têta est un vecteur
+                                        - La dérivée se généralise au gradient
+                                        - dans le cas d'un réseau de neurone ce processus s'appelle backpropagation
+                        
+                        Réseau de neurone :
+                                Dans un réseau de neurone, un neurone a un vecteur X, on le multiplie par des poids (produit scalaire entre poids et vecteurs). Dans les réseaux, on a des couches de neurones et têta est une matrice. Pour le deeplearning, on a plusieurs couches de neurones avec pleins de paramètres.
+                                Forwardpass : de X vers la sortie
+                                Backpropagation : calculer la dérivée du modèle, on prend le X, on lui applique une couche, puis une autre, ... -> devient une fonction composée. En pratique, l'optimisation par descente de gradient devient une série de calculs matriciels.
