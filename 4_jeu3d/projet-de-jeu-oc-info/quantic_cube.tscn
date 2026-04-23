@@ -1,14 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bffm6xmr52qyg"]
 
 [ext_resource type="Script" uid="uid://byv3enqugchqr" path="res://quantic_cube.gd" id="1_qxyk7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu6wt"]
-albedo_color = Color(0, 0, 0.572549, 1)
-metallic = 0.9
+[ext_resource type="PackedScene" uid="uid://cmh8c2h0iwiuf" path="res://stone.tscn" id="2_mu6wt"]
 
 [node name="QuanticCube" type="Node3D"]
 script = ExtResource("1_qxyk7")
+teleport_mode = 1
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-use_collision = true
-material = SubResource("StandardMaterial3D_mu6wt")
+[node name="Node3D" parent="." instance=ExtResource("2_mu6wt")]

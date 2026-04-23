@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://peqwkkd4wfts"]
+[gd_scene load_steps=6 format=3 uid="uid://peqwkkd4wfts"]
 
 [ext_resource type="PackedScene" uid="uid://bffm6xmr52qyg" path="res://quantic_cube.tscn" id="1_dopym"]
 [ext_resource type="PackedScene" uid="uid://cav58piirygjd" path="res://char.tscn" id="1_jwv3a"]
+[ext_resource type="PackedScene" uid="uid://6s4mh7akraey" path="res://cables.tscn" id="3_ootpb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwv3a"]
 albedo_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Environment" id="Environment_ootpb"]
+glow_enabled = true
+
 [node name="Node3D" type="Node3D"]
 
 [node name="QuanticCube" parent="." instance=ExtResource("1_dopym")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.13252, 1.19622, -4.30013)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.00191, 1.25, -6.00335)
+fixed_positions = Array[Vector3]([Vector3(-2, 1.25, -6), Vector3(-2, 1.25, 6), Vector3(-7, 1.25, 0)])
 
 [node name="Character" parent="." instance=ExtResource("1_jwv3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2529, 0)
@@ -27,3 +32,17 @@ material = SubResource("StandardMaterial3D_jwv3a")
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9996, 0.488699, 0)
 use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 6)
+use_collision = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -6)
+use_collision = true
+
+[node name="cables" parent="." instance=ExtResource("3_ootpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.318, 0, -1.694)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ootpb")
