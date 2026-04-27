@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://di3xr8dqcqr7t" path="res://cables.gd" id="1_13hlb"]
 [ext_resource type="Shader" uid="uid://btg8ohg40bg8f" path="res://cables.gdshader" id="2_g2c6o"]
-[ext_resource type="PackedScene" uid="uid://bkv8lbiv3lhrs" path="res://cablesform.tscn" id="3_fv80g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g2c6o"]
 render_priority = 0
@@ -19,5 +18,3 @@ material = SubResource("ShaderMaterial_g2c6o")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=365717274]
 curve = SubResource("Curve3D_13hlb")
-
-[node name="cables" parent="Path3D" unique_id=1334175343 instance=ExtResource("3_fv80g")]
