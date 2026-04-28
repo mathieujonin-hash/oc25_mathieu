@@ -14,11 +14,6 @@ func _process(delta):
 
 func _apply(node):
 	for child in node.get_children():
-		
-		if child is MeshInstance3D:
-			child.material_override = material
-		
-		if child is CSGMesh3D:
+		if child is CSGPolygon3D:
 			child.material = material
-		
 		_apply(child)

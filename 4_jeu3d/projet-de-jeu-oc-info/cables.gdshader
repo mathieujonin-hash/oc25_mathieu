@@ -8,10 +8,11 @@ void fragment() {
 
 	float t = custom_time * speed;
 
-	// position locale dans le mesh (stable car généré par Path)
-	float pos = UV.y;
+	float pos = UV.x * 0.1;
 
-	float d = abs(pos - fract(t));
+	float travel = fract(t);
+
+	float d = abs(pos - travel);
 
 	float pulse = exp(-d * 25.0);
 

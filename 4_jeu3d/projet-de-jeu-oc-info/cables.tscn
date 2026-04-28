@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://di3xr8dqcqr7t" path="res://cables.gd" id="1_13hlb"]
 [ext_resource type="Shader" uid="uid://btg8ohg40bg8f" path="res://cables.gdshader" id="2_g2c6o"]
+[ext_resource type="Script" uid="uid://qjy8a57edd16" path="res://csg_polygon_3d.gd" id="3_fv80g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g2c6o"]
 render_priority = 0
@@ -11,6 +12,11 @@ shader_parameter/speed = 1.0
 shader_parameter/emission_strength = 4.0
 
 [sub_resource type="Curve3D" id="Curve3D_13hlb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.01, 0, 0, 0, 0, 0, 0, 0, 0, 5.6305127, 0.02, 0.71, 0, 0, 0, 0, 0, 0, 8.02, 0, 3.25, 0, 0, 0, 0, 0, 0, 8.92, 0, 11.72),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="cables" type="Node3D" unique_id=2080037552]
 script = ExtResource("1_13hlb")
@@ -18,3 +24,18 @@ material = SubResource("ShaderMaterial_g2c6o")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=365717274]
 curve = SubResource("Curve3D_13hlb")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D" unique_id=1573609770]
+polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+script = ExtResource("3_fv80g")
