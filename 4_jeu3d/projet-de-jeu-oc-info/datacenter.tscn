@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://peqwkkd4wfts"]
+
+[ext_resource type="PackedScene" uid="uid://bffm6xmr52qyg" path="res://quantic_cube.tscn" id="1_ly04k"]
+[ext_resource type="PackedScene" uid="uid://cav58piirygjd" path="res://char.tscn" id="2_i1ori"]
+[ext_resource type="Script" uid="uid://one1velx0c1w" path="res://cable.gd" id="3_vc5mc"]
+[ext_resource type="Shader" uid="uid://btg8ohg40bg8f" path="res://cables.gdshader" id="4_fsok6"]
+[ext_resource type="Script" uid="uid://qjy8a57edd16" path="res://csg_polygon_3d.gd" id="5_taiww"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwv3a"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Environment" id="Environment_ootpb"]
+glow_enabled = true
+glow_intensity = 1.5
+glow_hdr_threshold = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2041"]
+render_priority = 0
+shader = ExtResource("4_fsok6")
+shader_parameter/custom_time = 0.0
+shader_parameter/speed = 1.0
+shader_parameter/emission_strength = 4.0
+
+[sub_resource type="Curve3D" id="Curve3D_v8kj3"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.969513, 0, 0, 0, 0, 0, 0, 0, 0, -6.9979687, 0, 0, 0, 0, 0, 0, 0, 0, -8.693579, 0.02, -0.0062161684, 0, 0, 0, 0, 0, 0, -9.648435, 0, -0.017917395, 0, 0, 0, 0, 0, 0, -14.674246, 0, -0.004720211),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_crycw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.002718, 0, 0, 0, 0, 0, 0, 0, 0, -5.354465, 0, 0, 0, 0, 0, 0, 0, 0, -8.693579, 0.02, -1.4778898, 0, 0, 0, 0, 0, 0, -9.648435, 0, -3.3934233, 0, 0, 0, 0, 0, 0, -9.721949, 0, -5.9731755),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_i2041"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.008728, 1.6718323e-21, -3.824706e-14, 0, 0, 0, 0, 0, 0, -5.354465, 0, 0, 0, 0, 0, 0, 0, 0, -8.693579, 0.02, -1.4778898, 0, 0, 0, 0, 0, 0, -9.648435, 0, -3.3934233, 0, 0, 0, 0, 0, 0, -9.721949, 0, -5.9731755),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Node3D" type="Node3D" unique_id=1111271854]
+
+[node name="QuanticCube" parent="." unique_id=102222250 instance=ExtResource("1_ly04k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.00191, 1.25, -6.00335)
+fixed_positions = Array[Vector3]([Vector3(-2, 1.25, -6), Vector3(-2, 1.25, 6), Vector3(-7, 1.25, 0)])
+
+[node name="Character" parent="." unique_id=1931477956 instance=ExtResource("2_i1ori")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.4586744, 1.6658564, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1242556448]
+transform = Transform3D(0.36372915, 0.6895007, -0.6263305, 0.86722714, -0.005214038, 0.4978852, 0.34002653, -0.72426623, -0.59985036, -9.147557, 4.10599, 0)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=584711760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+use_collision = true
+size = Vector3(100, 0.5, 100)
+material = SubResource("StandardMaterial3D_jwv3a")
+
+[node name="Terminal_middle" type="CSGBox3D" parent="." unique_id=905579575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9996, 0.488699, 0)
+use_collision = true
+
+[node name="Terminal_left" type="CSGBox3D" parent="." unique_id=583343359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 6)
+use_collision = true
+
+[node name="Terminal_right" type="CSGBox3D" parent="." unique_id=1281924258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -6)
+use_collision = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=938108650]
+environment = SubResource("Environment_ootpb")
+
+[node name="cable" type="Node3D" parent="." unique_id=1024545867]
+script = ExtResource("3_vc5mc")
+material = SubResource("ShaderMaterial_i2041")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="cable" unique_id=87455116]
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="cable/CSGCombiner3D" unique_id=1086847197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021008968, 0, 0)
+polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
+mode = 2
+path_node = NodePath("Path3D_middle")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+script = ExtResource("5_taiww")
+
+[node name="Path3D_middle" type="Path3D" parent="cable/CSGCombiner3D/CSGPolygon3D2" unique_id=2125990617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.715175, 0, 0)
+curve = SubResource("Curve3D_v8kj3")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="cable/CSGCombiner3D" unique_id=585304103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021008968, 0, 0)
+polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
+mode = 2
+path_node = NodePath("Path3D_right")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+script = ExtResource("5_taiww")
+
+[node name="Path3D_right" type="Path3D" parent="cable/CSGCombiner3D/CSGPolygon3D" unique_id=737460874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.715175, 0, 0)
+curve = SubResource("Curve3D_crycw")
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="cable/CSGCombiner3D" unique_id=1535086611]
+transform = Transform3D(1, 0, -3.8213705e-15, -3.821371e-15, 4.3711385e-08, -0.99999994, 0, 0.99999994, 4.3711385e-08, -0.021008968, 2.9482547e-14, 0)
+polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
+mode = 2
+path_node = NodePath("Path3D_left")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+script = ExtResource("5_taiww")
+
+[node name="Path3D_left" type="Path3D" parent="cable/CSGCombiner3D/CSGPolygon3D3" unique_id=10903404]
+transform = Transform3D(1, 1.2621775e-29, -4.2351647e-22, 0, 0.99999994, 0, 0, 0, 0.99999994, 7.715175, 0, 3.3881318e-21)
+curve = SubResource("Curve3D_i2041")

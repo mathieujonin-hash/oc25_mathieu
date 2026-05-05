@@ -8,7 +8,7 @@ void fragment() {
 
 	float t = custom_time * speed;
 
-	float pos = UV.x * 0.1;
+	float pos = UV.x * 0.03;
 
 	float travel = fract(t);
 

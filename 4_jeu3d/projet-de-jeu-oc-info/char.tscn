@@ -1,34 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://cav58piirygjd"]
+[gd_scene format=3 uid="uid://cav58piirygjd"]
 
 [ext_resource type="Script" uid="uid://cml7irn1vktxm" path="res://char.gd" id="1_njpxk"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_njpxk"]
 height = 1.29175
 
-[node name="Character" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785118, 0)
+[node name="Character" type="CharacterBody3D" unique_id=288671187]
 script = ExtResource("1_njpxk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1700166298]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354126, 0)
 shape = SubResource("CylinderShape3D_njpxk")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=530459407]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0333534, 0)
 radius = 0.271771
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGSphere3D"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGSphere3D" unique_id=1448765338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.585449, 0)
 radius = 0.293945
 height = 0.829102
 sides = 24
 
-[node name="Head" type="Node3D" parent="."]
+[node name="Head" type="Node3D" parent="." unique_id=1740828156]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.256743, 0)
 
-[node name="CameraFPS" type="Camera3D" parent="Head"]
+[node name="CameraFPS" type="Camera3D" parent="Head" unique_id=2084030027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330291, 0)
 
-[node name="CameraThirdPerson" type="Camera3D" parent="Head"]
+[node name="CameraThirdPerson" type="Camera3D" parent="Head" unique_id=931358431]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25674, 2)
 fov = 106.626
