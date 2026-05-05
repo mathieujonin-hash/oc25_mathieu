@@ -23,24 +23,45 @@ shader_parameter/emission_strength = 4.0
 
 [sub_resource type="Curve3D" id="Curve3D_v8kj3"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.969513, 0, 0, 0, 0, 0, 0, 0, 0, -6.9979687, 0, 0, 0, 0, 0, 0, 0, 0, -8.693579, 0.02, -0.0062161684, 0, 0, 0, 0, 0, 0, -9.648435, 0, -0.017917395, 0, 0, 0, 0, 0, 0, -14.674246, 0, -0.004720211),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.4422865, 0, 0, 0, 0, 0, 0, 0, 0, 2.4380016, 0, 0, 0, 0, 0, 0, 0, 0, -6.9979687, 0, 0, 0, 0, 0, 0, 0, 0, -8.693579, 0.02, -0.0062161684, 0, 0, 0, 0, 0, 0, -9.648435, 0, -0.017917395, 0, 0, 0, 0, 0, 0, -14.674246, 0, -0.004720211),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
-point_count = 5
+point_count = 6
 
 [sub_resource type="Curve3D" id="Curve3D_crycw"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.002718, 0, 0, 0, 0, 0, 0, 0, 0, -5.354465, 0, 0, 0, 0, 0, 0, 0, 0, -8.693579, 0.02, -1.4778898, 0, 0, 0, 0, 0, 0, -9.648435, 0, -3.3934233, 0, 0, 0, 0, 0, 0, -9.721949, 0, -5.9731755),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.3501616, 0, 0, 0, 0, 0, 0, 0, 0, -5.354465, 0, 0, 0, 0, 0, 0, 0, 0, -8.693579, 0.02, -1.4778898, 0, 0, 0, 0, 0, 0, -9.648435, 0, -3.3934233, 0, 0, 0, 0, 0, 0, -9.721949, 0, -5.9731755),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
 
 [sub_resource type="Curve3D" id="Curve3D_i2041"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.008728, 1.6718323e-21, -3.824706e-14, 0, 0, 0, 0, 0, 0, -5.354465, 0, 0, 0, 0, 0, 0, 0, 0, -8.693579, 0.02, -1.4778898, 0, 0, 0, 0, 0, 0, -9.648435, 0, -3.3934233, 0, 0, 0, 0, 0, 0, -9.721949, 0, -5.9731755),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.3924417, 3.996273e-22, -9.142406e-15, 0, 0, 0, 0, 0, 0, -5.354465, 0, 0, 0, 0, 0, 0, 0, 0, -8.693579, 0.02, -1.4778898, 0, 0, 0, 0, 0, 0, -9.648435, 0, -3.3934233, 0, 0, 0, 0, 0, 0, -9.721949, 0, -5.9731755),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_ly04k"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.951984, 0, -0.50654507, 0, 0, 0, 0, 0, 0, 2.952137, 0, 3.7310781),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_i1ori"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.4422865, 0, 0, 0, 0, 0, 0, 0, 0, -1.1506634, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_vc5mc"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.951984, 0, -0.50654507, 0, 0, 0, 0, 0, 0, 2.952137, 0, 3.7310781),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="Node3D" type="Node3D" unique_id=1111271854]
 
@@ -56,9 +77,9 @@ transform = Transform3D(0.36372915, 0.6895007, -0.6263305, 0.86722714, -0.005214
 shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=584711760]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029724121, -0.25, -0.00289917)
 use_collision = true
-size = Vector3(100, 0.5, 100)
+size = Vector3(20, 0.5, 16)
 material = SubResource("StandardMaterial3D_jwv3a")
 
 [node name="Terminal_middle" type="CSGBox3D" parent="." unique_id=905579575]
@@ -80,33 +101,15 @@ environment = SubResource("Environment_ootpb")
 script = ExtResource("3_vc5mc")
 material = SubResource("ShaderMaterial_i2041")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="cable" unique_id=87455116]
-
-[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="cable/CSGCombiner3D" unique_id=1086847197]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021008968, 0, 0)
-polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
-mode = 2
-path_node = NodePath("Path3D_middle")
-path_interval_type = 0
-path_interval = 1.0
-path_simplify_angle = 0.0
-path_rotation = 2
-path_rotation_accurate = false
-path_local = false
-path_continuous_u = true
-path_u_distance = 1.0
-path_joined = false
-script = ExtResource("5_taiww")
-
-[node name="Path3D_middle" type="Path3D" parent="cable/CSGCombiner3D/CSGPolygon3D2" unique_id=2125990617]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.715175, 0, 0)
+[node name="Path3D_middle" type="Path3D" parent="cable" unique_id=2125990617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.694166, 0, 0)
 curve = SubResource("Curve3D_v8kj3")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="cable/CSGCombiner3D" unique_id=585304103]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021008968, 0, 0)
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="cable/Path3D_middle" unique_id=1086847197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.715175, 0, 0)
 polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
 mode = 2
-path_node = NodePath("Path3D_right")
+path_node = NodePath("..")
 path_interval_type = 0
 path_interval = 1.0
 path_simplify_angle = 0.0
@@ -118,15 +121,15 @@ path_u_distance = 1.0
 path_joined = false
 script = ExtResource("5_taiww")
 
-[node name="Path3D_right" type="Path3D" parent="cable/CSGCombiner3D/CSGPolygon3D" unique_id=737460874]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.715175, 0, 0)
+[node name="Path3D_right" type="Path3D" parent="cable" unique_id=737460874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.694166, 0, 0)
 curve = SubResource("Curve3D_crycw")
 
-[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="cable/CSGCombiner3D" unique_id=1535086611]
-transform = Transform3D(1, 0, -3.8213705e-15, -3.821371e-15, 4.3711385e-08, -0.99999994, 0, 0.99999994, 4.3711385e-08, -0.021008968, 2.9482547e-14, 0)
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="cable/Path3D_right" unique_id=585304103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.715175, 0, 0)
 polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
 mode = 2
-path_node = NodePath("Path3D_left")
+path_node = NodePath("..")
 path_interval_type = 0
 path_interval = 1.0
 path_simplify_angle = 0.0
@@ -138,6 +141,84 @@ path_u_distance = 1.0
 path_joined = false
 script = ExtResource("5_taiww")
 
-[node name="Path3D_left" type="Path3D" parent="cable/CSGCombiner3D/CSGPolygon3D3" unique_id=10903404]
-transform = Transform3D(1, 1.2621775e-29, -4.2351647e-22, 0, 0.99999994, 0, 0, 0, 0.99999994, 7.715175, 0, 3.3881318e-21)
+[node name="Path3D_left" type="Path3D" parent="cable" unique_id=10903404]
+transform = Transform3D(1, 1.2621775e-29, -3.8213705e-15, -3.821371e-15, 4.371138e-08, -0.9999999, 0, 0.9999999, 4.371138e-08, 7.694166, -3.3881318e-21, 1.4809993e-28)
 curve = SubResource("Curve3D_i2041")
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="cable/Path3D_left" unique_id=1535086611]
+transform = Transform3D(1, -1.2621775e-29, 7.301437e-30, -1.2621775e-29, 1, 0, 0, 0, 1, -7.715175, 1.009742e-28, -6.7762636e-21)
+polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+script = ExtResource("5_taiww")
+
+[node name="Path3D_serverL" type="Path3D" parent="cable" unique_id=662682663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9598074, 0, 6.8144283)
+curve = SubResource("Curve3D_ly04k")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="cable/Path3D_serverL" unique_id=18413411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.949603, 0, -6.8328886)
+polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+script = ExtResource("5_taiww")
+
+[node name="Path3D_serverM" type="Path3D" parent="cable" unique_id=1630398903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.9100685, 0, 0)
+curve = SubResource("Curve3D_i1ori")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="cable/Path3D_serverM" unique_id=2141216381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.004323, 0, 0)
+polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+script = ExtResource("5_taiww")
+
+[node name="Path3D_serverR" type="Path3D" parent="cable" unique_id=731715364]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -4.9598074, 0, -6.910304)
+curve = SubResource("Curve3D_vc5mc")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="cable/Path3D_serverR" unique_id=1835818110]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 4.949603, -1.8731896e-08, -7.0471544)
+polygon = PackedVector2Array(1, 0, 0.7, 0.7, 0, 1, -0.7, 0.7, -1, 0, -0.7, -0.7, 0, -1, 0.7, -0.7)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+script = ExtResource("5_taiww")
+
+[node name="servers" type="Node3D" parent="." unique_id=283125567]

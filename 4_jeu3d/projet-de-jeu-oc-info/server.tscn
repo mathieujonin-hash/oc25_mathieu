@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bx5v4yg2nvssr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skwb6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ob30c"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8t3n"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imety"]
+albedo_color = Color(0, 0.2627451, 0.8392157, 1)
+emission_enabled = true
+emission = Color(0, 0.2627451, 0.8392157, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1244643006]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2038643743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(1, 2, 1)
+material = SubResource("StandardMaterial3D_skwb6")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=127249952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, 0.0113220215, 0.019470215)
+operation = 2
+size = Vector3(0.9086914, 1.8701782, 1.4442139)
+material = SubResource("StandardMaterial3D_ob30c")
+
+[node name="Plateau" type="CSGBox3D" parent="CSGBox3D" unique_id=88839086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014404297, 0.63365245, 0)
+size = Vector3(0.9711914, 0.022583008, 1)
+material = SubResource("StandardMaterial3D_h8t3n")
+
+[node name="Plateau2" type="CSGBox3D" parent="CSGBox3D" unique_id=272724441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014404297, 0.33388126, 0)
+size = Vector3(0.9711914, 0.022583008, 1)
+material = SubResource("StandardMaterial3D_h8t3n")
+
+[node name="Plateau3" type="CSGBox3D" parent="CSGBox3D" unique_id=1453807757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014404297, 0.034951568, 0)
+size = Vector3(0.9711914, 0.022583008, 1)
+material = SubResource("StandardMaterial3D_h8t3n")
+
+[node name="Plateau4" type="CSGBox3D" parent="CSGBox3D" unique_id=1561125026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014404297, -0.26708984, 0)
+size = Vector3(0.9711914, 0.022583008, 1)
+material = SubResource("StandardMaterial3D_h8t3n")
+
+[node name="Plateau5" type="CSGBox3D" parent="CSGBox3D" unique_id=256474893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014404297, -0.56686103, 0)
+size = Vector3(0.9711914, 0.022583008, 1)
+material = SubResource("StandardMaterial3D_h8t3n")
+
+[node name="Data" type="CSGBox3D" parent="CSGBox3D" unique_id=1809100052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031738281, 0.7852154, -0.00024414063)
+size = Vector3(0.90185547, 0.234375, 0.92333984)
+material = SubResource("StandardMaterial3D_imety")
+
+[node name="Data2" type="CSGBox3D" parent="CSGBox3D" unique_id=1759024933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031738281, 0.47456992, -0.00024414063)
+size = Vector3(0.90185547, 0.234375, 0.92333984)
+material = SubResource("StandardMaterial3D_imety")
+
+[node name="Data3" type="CSGBox3D" parent="CSGBox3D" unique_id=90473618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031738281, 0.1658274, -0.00024414063)
+size = Vector3(0.90185547, 0.234375, 0.92333984)
+material = SubResource("StandardMaterial3D_imety")
+
+[node name="Data4" type="CSGBox3D" parent="CSGBox3D" unique_id=743032587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031738281, -0.13258266, -0.00024414063)
+size = Vector3(0.90185547, 0.234375, 0.92333984)
+material = SubResource("StandardMaterial3D_imety")
+
+[node name="Data5" type="CSGBox3D" parent="CSGBox3D" unique_id=1743490674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031738281, -0.44394028, -0.00024414063)
+size = Vector3(0.90185547, 0.234375, 0.92333984)
+material = SubResource("StandardMaterial3D_imety")
+
+[node name="Data6" type="CSGBox3D" parent="CSGBox3D" unique_id=276795787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031738281, -0.80799514, -0.00024414063)
+size = Vector3(0.90185547, 0.234375, 0.92333984)
+material = SubResource("StandardMaterial3D_imety")
