@@ -4,27 +4,24 @@ extends CharacterBody3D
 @export var jump_velocity = 6.5
 @export var gravity = 18.0
 @export var mouse_sensitivity = 0.2
+@onready var hand = $Hand
+
 
 var rotation_x = 0.0
-var fps_mode = true
+var can_move_camera = true
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and can_move_camera:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 
 		rotation_x -= event.relative.y * mouse_sensitivity
 		rotation_x = clamp(rotation_x, -80, 80)
 		$Head.rotation_degrees.x = rotation_x
-		
-	if event.is_action_pressed("toggle_view"):
-		fps_mode = !fps_mode
-		
-		$Head/CameraFPS.current = fps_mode
-		$Head/CameraThirdPerson.current = !fps_mode
+
 
 func _physics_process(delta):
 
