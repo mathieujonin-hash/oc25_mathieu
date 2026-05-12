@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://blrxxxre1l7cf"]
+
+[ext_resource type="Script" uid="uid://nsy5cak48igg" path="res://image_card.gd" id="1_v7a01"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2q3f"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_uqgk5"]
+material = SubResource("StandardMaterial3D_h2q3f")
+size = Vector2(0.4, 0.6)
+
+[node name="ImageCard" type="Node3D" unique_id=1462000347]
+script = ExtResource("1_v7a01")
+
+[node name="CardMesh" type="MeshInstance3D" parent="." unique_id=1205459073]
+mesh = SubResource("QuadMesh_uqgk5")

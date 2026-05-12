@@ -28,6 +28,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.256743, 0)
 [node name="CameraFPS" type="Camera3D" parent="Head" unique_id=2084030027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330291, 0)
 
-[node name="CameraThirdPerson" type="Camera3D" parent="Head" unique_id=931358431]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25674, 2)
-fov = 106.626
+[node name="Hand" type="Node3D" parent="Head/CameraFPS" unique_id=943843428]
+transform = Transform3D(0.8660254, -0.17101006, 0.4698463, 0, 0.9396926, 0.34202012, -0.5, -0.2961981, 0.81379765, 0.3, -0.2, -0.8)
