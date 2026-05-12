@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://30euaxbhd7mk"]
+
+[ext_resource type="Script" uid="uid://1c7h6dbkqhw5" path="res://gpu.gd" id="1_mj4sy"]
+[ext_resource type="PackedScene" uid="uid://cav58piirygjd" path="res://char.tscn" id="4_bsh6f"]
+
+[node name="MainScene" type="Node3D" unique_id=1924715309]
+script = ExtResource("1_mj4sy")
+
+[node name="Character" parent="." unique_id=288671187 instance=ExtResource("4_bsh6f")]
+
+[node name="Hand" type="Node3D" parent="Character" unique_id=240832672]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=124601214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+use_collision = true
+size = Vector3(10, 1, 10)

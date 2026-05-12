@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://one1velx0c1w" path="res://cable.gd" id="3_vc5mc"]
 [ext_resource type="Shader" uid="uid://btg8ohg40bg8f" path="res://cables.gdshader" id="4_fsok6"]
 [ext_resource type="Script" uid="uid://qjy8a57edd16" path="res://csg_polygon_3d.gd" id="5_taiww"]
+[ext_resource type="PackedScene" uid="uid://behxbuom1p0x0" path="res://server_bloc.tscn" id="6_i1ori"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwv3a"]
 albedo_color = Color(0, 0, 0, 1)
@@ -221,4 +222,4 @@ path_u_distance = 1.0
 path_joined = false
 script = ExtResource("5_taiww")
 
-[node name="servers" type="Node3D" parent="." unique_id=283125567]
+[node name="server" parent="." unique_id=350464446 instance=ExtResource("6_i1ori")]
