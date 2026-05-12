@@ -7,9 +7,15 @@ extends Node3D
 
 @onready var gallery_camera = $GalleryCamera
 @onready var carousel = $Gallery/Carousel
+@onready var gallery_text = $GalleryText
+@onready var in_gallery_text = $InGalleryText
+
+@onready var scanner = $Scanner
+@onready var result_label = $Scanner/ResultLabel
 
 var player_near_gallery = false
 var in_gallery_mode = false
+var held_card = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,8 +27,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		spawn_test_card()
 	if event.is_action_pressed("interact"):
 		
 		if player_near_gallery and not in_gallery_mode:
@@ -30,6 +34,9 @@ func _input(event):
 
 		elif in_gallery_mode:
 			exit_gallery_mode()
+	
+	if in_gallery_mode and event.is_action_pressed("ui_accept"):
+		select_current_card()
 
 func spawn_test_card():
 	var card = MeshInstance3D.new()
@@ -39,9 +46,11 @@ func spawn_test_card():
 	card.position = Vector3.ZERO
 
 func enter_gallery_mode():
-	
+	character.visible = false
 	character.can_move_camera = false
 	in_gallery_mode = true
+	gallery_text.visible = false
+	in_gallery_text.visible = true
 
 	# Caméras
 	player_camera.current = false
@@ -57,9 +66,11 @@ func enter_gallery_mode():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func exit_gallery_mode():
-	
+	character.visible = true
 	character.can_move_camera = true
 	in_gallery_mode = false
+	gallery_text.visible = true
+	in_gallery_text.visible = false
 
 	# Caméras
 	player_camera.current = true
@@ -78,9 +89,55 @@ func _on_gallery_area_body_entered(body):
 
 	if body.name == "Character":
 		player_near_gallery = true
+		gallery_text.visible = true
 
 
 func _on_gallery_area_body_exited(body):
 
 	if body.name == "Character":
 		player_near_gallery = false
+		gallery_text.visible = false
+
+func select_current_card():
+
+	if held_card != null:
+		held_card.queue_free()
+		
+	var original_card = carousel.cards[carousel.current_index]
+
+	var copy_card = original_card.duplicate()
+
+	hand.add_child(copy_card)
+	
+	held_card = copy_card
+
+	copy_card.visible = true
+	copy_card.position = Vector3(0, 0, 0)
+	copy_card.rotation_degrees = Vector3(0, -30, 0)
+	copy_card.scale = Vector3.ONE * 1.5
+
+func place_card_in_scanner():
+
+	if held_card == null:
+		return
+
+	held_card.get_parent().remove_child(held_card)
+
+	scanner.add_child(held_card)
+
+	held_card.position = Vector3.ZERO
+	held_card.rotation_degrees = Vector3.ZERO
+	held_card.scale = Vector3.ONE
+
+	scan_card()
+
+func scan_card():
+
+	if held_card == null:
+		return
+
+	result_label.text = "Scanning..."
+
+	await get_tree().create_timer(2.0).timeout
+
+	result_label.text = held_card.content

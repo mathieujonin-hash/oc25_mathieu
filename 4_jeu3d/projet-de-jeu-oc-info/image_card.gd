@@ -6,6 +6,8 @@ extends Node3D
 
 @export var base_width := 0.5
 
+@export var content := ""
+
 func _ready():
 	if texture != null:
 		set_texture(texture)

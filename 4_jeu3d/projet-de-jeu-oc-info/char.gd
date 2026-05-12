@@ -35,15 +35,15 @@ func _physics_process(delta):
 
 	# --- DÉPLACEMENT ---
 	var direction = Vector3.ZERO
-
-	if Input.is_action_pressed("move_forward"):
-		direction -= transform.basis.z
-	if Input.is_action_pressed("move_backward"):
-		direction += transform.basis.z
-	if Input.is_action_pressed("move_left"):
-		direction -= transform.basis.x
-	if Input.is_action_pressed("move_right"):
-		direction += transform.basis.x
+	if can_move_camera:
+		if Input.is_action_pressed("move_forward"):
+			direction -= transform.basis.z
+		if Input.is_action_pressed("move_backward"):
+			direction += transform.basis.z
+		if Input.is_action_pressed("move_left"):
+			direction -= transform.basis.x
+		if Input.is_action_pressed("move_right"):
+			direction += transform.basis.x
 
 	direction = direction.normalized()
 

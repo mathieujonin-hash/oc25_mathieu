@@ -9,13 +9,16 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_klaxv"]
 size = Vector3(3, 2, 3)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfi5f"]
+size = Vector3(2.3530273, 1.6728516, 1)
+
 [node name="GPU" type="Node3D" unique_id=1299200498]
 script = ExtResource("1_uxivv")
 
 [node name="Character" parent="." unique_id=288671187 instance=ExtResource("1_tgo4v")]
 
 [node name="GalleryCamera" type="Camera3D" parent="." unique_id=1855150996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1277498, -0.5663612)
 fov = 40.0
 
 [node name="Gallery" type="Node3D" parent="." unique_id=1068894332]
@@ -26,6 +29,7 @@ script = ExtResource("3_fqpr6")
 
 [node name="ImageCard" parent="Gallery/Carousel" unique_id=1462000347 instance=ExtResource("4_klaxv")]
 texture = ExtResource("5_5gw0g")
+content = "Math Winner"
 
 [node name="ImageCard2" parent="Gallery/Carousel" unique_id=1962568515 instance=ExtResource("4_klaxv")]
 
@@ -64,6 +68,29 @@ size = Vector3(10, 1, 10)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GalleryArea" unique_id=794327385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.30084)
 shape = SubResource("BoxShape3D_klaxv")
+
+[node name="GalleryText" type="Label3D" parent="." unique_id=1832083602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65370995, -3.17)
+visible = false
+text = "Press E to interact"
+
+[node name="InGalleryText" type="Label3D" parent="." unique_id=2016854838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65370995, -3.17)
+visible = false
+text = "Browse with <- and ->, 
+
+Press ENTER to select"
+
+[node name="Scanner" type="Node3D" parent="." unique_id=2103002708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.3376217)
+
+[node name="ScanArea" type="Area3D" parent="Scanner" unique_id=129033853]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scanner/ScanArea" unique_id=1107771146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17114258, -0.33642578, 0)
+shape = SubResource("BoxShape3D_kfi5f")
+
+[node name="ScanMesh" type="MeshInstance3D" parent="Scanner" unique_id=1959026425]
 
 [connection signal="body_entered" from="GalleryArea" to="." method="_on_gallery_area_body_entered"]
 [connection signal="body_exited" from="GalleryArea" to="." method="_on_gallery_area_body_exited"]
