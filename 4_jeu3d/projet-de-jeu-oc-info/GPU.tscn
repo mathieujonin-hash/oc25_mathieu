@@ -1,16 +1,69 @@
-[gd_scene format=3 uid="uid://30euaxbhd7mk"]
+[gd_scene format=3 uid="uid://cu8mgk045q4f4"]
 
-[ext_resource type="Script" uid="uid://1c7h6dbkqhw5" path="res://gpu.gd" id="1_mj4sy"]
-[ext_resource type="PackedScene" uid="uid://cav58piirygjd" path="res://char.tscn" id="4_bsh6f"]
+[ext_resource type="PackedScene" uid="uid://cav58piirygjd" path="res://char.tscn" id="1_tgo4v"]
+[ext_resource type="Script" uid="uid://1c7h6dbkqhw5" path="res://gpu.gd" id="1_uxivv"]
+[ext_resource type="Script" uid="uid://crhkrx7whycx8" path="res://carousel.gd" id="3_fqpr6"]
+[ext_resource type="PackedScene" uid="uid://blrxxxre1l7cf" path="res://image_card.tscn" id="4_klaxv"]
+[ext_resource type="Texture2D" uid="uid://dum0sudikuw1c" path="res://images/ChatGPT Image 25 févr. 2026, 21_12_12.png" id="5_5gw0g"]
 
-[node name="MainScene" type="Node3D" unique_id=1924715309]
-script = ExtResource("1_mj4sy")
+[sub_resource type="BoxShape3D" id="BoxShape3D_klaxv"]
+size = Vector3(3, 2, 3)
 
-[node name="Character" parent="." unique_id=288671187 instance=ExtResource("4_bsh6f")]
+[node name="GPU" type="Node3D" unique_id=1299200498]
+script = ExtResource("1_uxivv")
 
-[node name="Hand" type="Node3D" parent="Character" unique_id=240832672]
+[node name="Character" parent="." unique_id=288671187 instance=ExtResource("1_tgo4v")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=124601214]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+[node name="GalleryCamera" type="Camera3D" parent="." unique_id=1855150996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+fov = 40.0
+
+[node name="Gallery" type="Node3D" parent="." unique_id=1068894332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.1703396)
+
+[node name="Carousel" type="Node3D" parent="Gallery" unique_id=53829762]
+script = ExtResource("3_fqpr6")
+
+[node name="ImageCard" parent="Gallery/Carousel" unique_id=1462000347 instance=ExtResource("4_klaxv")]
+texture = ExtResource("5_5gw0g")
+
+[node name="ImageCard2" parent="Gallery/Carousel" unique_id=1962568515 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard3" parent="Gallery/Carousel" unique_id=754537451 instance=ExtResource("4_klaxv")]
+texture = ExtResource("5_5gw0g")
+
+[node name="ImageCard4" parent="Gallery/Carousel" unique_id=1757281187 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard5" parent="Gallery/Carousel" unique_id=327390928 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard6" parent="Gallery/Carousel" unique_id=1161211828 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard7" parent="Gallery/Carousel" unique_id=1136942342 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard8" parent="Gallery/Carousel" unique_id=2120772586 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard9" parent="Gallery/Carousel" unique_id=1975939753 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard10" parent="Gallery/Carousel" unique_id=1434591793 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard11" parent="Gallery/Carousel" unique_id=1333234490 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard12" parent="Gallery/Carousel" unique_id=1195475434 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard13" parent="Gallery/Carousel" unique_id=770410649 instance=ExtResource("4_klaxv")]
+
+[node name="ImageCard14" parent="Gallery/Carousel" unique_id=624873175 instance=ExtResource("4_klaxv")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=396040168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6794951, 0)
 use_collision = true
 size = Vector3(10, 1, 10)
+
+[node name="GalleryArea" type="Area3D" parent="." unique_id=1046965402]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GalleryArea" unique_id=794327385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.30084)
+shape = SubResource("BoxShape3D_klaxv")
+
+[connection signal="body_entered" from="GalleryArea" to="." method="_on_gallery_area_body_entered"]
+[connection signal="body_exited" from="GalleryArea" to="." method="_on_gallery_area_body_exited"]
