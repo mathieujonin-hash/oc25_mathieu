@@ -17,14 +17,7 @@ var player_near_gallery = false
 var in_gallery_mode = false
 var held_card = null
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var player_near_scanner = false
 
 func _input(event):
 	if event.is_action_pressed("interact"):
@@ -98,6 +91,15 @@ func _on_gallery_area_body_exited(body):
 		player_near_gallery = false
 		gallery_text.visible = false
 
+func _on_scan_area_area_entered(body):
+	if body.name == "Character":
+		player_near_scanner = true
+
+func _on_scan_area_area_exited(body):
+	if body.name == "Character":
+		player_near_scanner = false
+
+
 func select_current_card():
 
 	if held_card != null:
@@ -116,28 +118,35 @@ func select_current_card():
 	copy_card.rotation_degrees = Vector3(0, -30, 0)
 	copy_card.scale = Vector3.ONE * 1.5
 
-func place_card_in_scanner():
+func place_card_in_scanner(event):
 
 	if held_card == null:
 		return
+	
+	if event.is_action_pressed("interact"):
+		held_card.get_parent().remove_child(held_card)
 
-	held_card.get_parent().remove_child(held_card)
+		scanner.add_child(held_card)
 
-	scanner.add_child(held_card)
+		held_card.position = Vector3.ZERO
+		held_card.rotation_degrees = Vector3.ZERO
+		held_card.scale = Vector3.ONE
 
-	held_card.position = Vector3.ZERO
-	held_card.rotation_degrees = Vector3.ZERO
-	held_card.scale = Vector3.ONE
-
-	scan_card()
+		scan_card()
 
 func scan_card():
 
 	if held_card == null:
 		return
+	else:
+		for i in randi_range(2, 5):
+			result_label.text = "Scanning."
+			await get_tree().create_timer(0.3).timeout
+			result_label.text = "Scanning.."
+			await get_tree().create_timer(0.3).timeout
+			result_label.text = "Scanning..."
+			await get_tree().create_timer(0.3).timeout
 
-	result_label.text = "Scanning..."
+		await get_tree().create_timer(2.0).timeout
 
-	await get_tree().create_timer(2.0).timeout
-
-	result_label.text = held_card.content
+		result_label.text = held_card.content

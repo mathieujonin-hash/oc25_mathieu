@@ -22,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1277498, -0.5663612)
 fov = 40.0
 
 [node name="Gallery" type="Node3D" parent="." unique_id=1068894332]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.1703396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.192591)
 
 [node name="Carousel" type="Node3D" parent="Gallery" unique_id=53829762]
 script = ExtResource("3_fqpr6")
@@ -58,12 +58,8 @@ texture = ExtResource("5_5gw0g")
 
 [node name="ImageCard14" parent="Gallery/Carousel" unique_id=624873175 instance=ExtResource("4_klaxv")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=396040168]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6794951, 0)
-use_collision = true
-size = Vector3(10, 1, 10)
-
 [node name="GalleryArea" type="Area3D" parent="." unique_id=1046965402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0222516)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GalleryArea" unique_id=794327385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.30084)
@@ -92,5 +88,16 @@ shape = SubResource("BoxShape3D_kfi5f")
 
 [node name="ScanMesh" type="MeshInstance3D" parent="Scanner" unique_id=1959026425]
 
+[node name="ResultLabel" type="Label3D" parent="Scanner" unique_id=1068888859]
+visible = false
+
+[node name="Room" type="Node3D" parent="." unique_id=1102973813]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Room" unique_id=396040168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6794951, 0)
+use_collision = true
+size = Vector3(10, 1, 10)
+
 [connection signal="body_entered" from="GalleryArea" to="." method="_on_gallery_area_body_entered"]
 [connection signal="body_exited" from="GalleryArea" to="." method="_on_gallery_area_body_exited"]
+[connection signal="area_entered" from="Scanner/ScanArea" to="." method="_on_scan_area_area_entered"]

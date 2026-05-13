@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var jump_velocity = 6.5
 @export var gravity = 18.0
 @export var mouse_sensitivity = 0.2
-@onready var hand = $Hand
+@onready var hand = $Head/CameraFPS/Hand
 
 
 var rotation_x = 0.0
