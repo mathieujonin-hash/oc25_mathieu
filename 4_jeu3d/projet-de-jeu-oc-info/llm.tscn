@@ -1,0 +1,304 @@
+[gd_scene format=3 uid="uid://cu8mgk045q4f4"]
+
+[ext_resource type="Script" uid="uid://1c7h6dbkqhw5" path="res://llm.gd" id="1_c7mib"]
+[ext_resource type="PackedScene" uid="uid://cav58piirygjd" path="res://char.tscn" id="2_huxnl"]
+[ext_resource type="Script" uid="uid://crhkrx7whycx8" path="res://carousel.gd" id="3_qw61t"]
+[ext_resource type="PackedScene" uid="uid://blrxxxre1l7cf" path="res://image_card.tscn" id="4_g1tn8"]
+[ext_resource type="Texture2D" uid="uid://d4bpwpbh3wyhn" path="res://images/WhatsApp Image 2026-05-17 at 14.05.36.jpeg" id="5_7gxoe"]
+[ext_resource type="Texture2D" uid="uid://fv02kpodmnud" path="res://images/WhatsApp Image 2026-05-17 at 14.05.37 (1).jpeg" id="6_7tvfn"]
+[ext_resource type="Texture2D" uid="uid://2dv0vhfcl0hh" path="res://images/WhatsApp Image 2026-05-17 at 14.05.37.jpeg" id="7_8hlr8"]
+[ext_resource type="Shader" uid="uid://0tsstijasgos" path="res://laser.gdshader" id="8_clt3v"]
+[ext_resource type="PackedScene" uid="uid://dmjkye3dqwelw" path="res://scan_capsule.tscn" id="9_35usl"]
+[ext_resource type="FontFile" uid="uid://b8dh80wmdflxw" path="res://Inter-VariableFont_opsz,wght.ttf" id="9_huxnl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klaxv"]
+size = Vector3(3, 2, 1.7016602)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfi5f"]
+size = Vector3(2.3530273, 1.6728516, 1.9560547)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ituck"]
+render_priority = 0
+shader = ExtResource("8_clt3v")
+shader_parameter/shift = Vector3(0, 0, 0)
+shader_parameter/time_shift_scale = Vector3(0, 0, 0)
+shader_parameter/scan_color = Color(0, 1, 0.3, 1)
+shader_parameter/scan_line_width = 0.1
+shader_parameter/scan_line_size = 0.05
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5nxdn"]
+material = SubResource("ShaderMaterial_ituck")
+top_radius = 0.33
+bottom_radius = 0.33
+height = 0.01
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5gw0g"]
+viewport_path = NodePath("Scanner/Screen/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqdu5"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_5gw0g")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5nxdn"]
+material = SubResource("StandardMaterial3D_lqdu5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_huxnl"]
+font = ExtResource("9_huxnl")
+
+[sub_resource type="FogMaterial" id="FogMaterial_huxnl"]
+density = 0.5
+albedo = Color(0.4, 0.8, 1, 1)
+emission = Color(0.4, 0.8, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7mib"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huxnl"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 4.0
+
+[sub_resource type="Environment" id="Environment_5gw0g"]
+glow_enabled = true
+glow_intensity = 2.0
+fog_enabled = true
+fog_light_color = Color(1, 1, 1, 1)
+fog_density = 0.0
+volumetric_fog_enabled = true
+
+[node name="LLM" type="Node3D" unique_id=1299200498]
+script = ExtResource("1_c7mib")
+
+[node name="Character" parent="." unique_id=288671187 instance=ExtResource("2_huxnl")]
+
+[node name="GalleryCamera" type="Camera3D" parent="." unique_id=1855150996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1277498, -0.5663612)
+fov = 40.0
+
+[node name="Gallery" type="Node3D" parent="." unique_id=1068894332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.453809)
+
+[node name="Carousel" type="Node3D" parent="Gallery" unique_id=53829762]
+script = ExtResource("3_qw61t")
+
+[node name="ImageCard" parent="Gallery/Carousel" unique_id=1462000347 instance=ExtResource("4_g1tn8")]
+texture = ExtResource("5_7gxoe")
+content = "This is the most beautiful cat in the world"
+
+[node name="ImageCard2" parent="Gallery/Carousel" unique_id=1962568515 instance=ExtResource("4_g1tn8")]
+texture = ExtResource("6_7tvfn")
+content = "This is a cat in a cardboard box"
+
+[node name="ImageCard3" parent="Gallery/Carousel" unique_id=754537451 instance=ExtResource("4_g1tn8")]
+texture = ExtResource("7_8hlr8")
+content = "That's a cat on a snowy balcony"
+
+[node name="ImageCard4" parent="Gallery/Carousel" unique_id=1757281187 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard5" parent="Gallery/Carousel" unique_id=327390928 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard6" parent="Gallery/Carousel" unique_id=1161211828 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard7" parent="Gallery/Carousel" unique_id=1136942342 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard8" parent="Gallery/Carousel" unique_id=2120772586 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard9" parent="Gallery/Carousel" unique_id=1975939753 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard10" parent="Gallery/Carousel" unique_id=1434591793 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard11" parent="Gallery/Carousel" unique_id=1333234490 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard12" parent="Gallery/Carousel" unique_id=1195475434 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard13" parent="Gallery/Carousel" unique_id=770410649 instance=ExtResource("4_g1tn8")]
+
+[node name="ImageCard14" parent="Gallery/Carousel" unique_id=624873175 instance=ExtResource("4_g1tn8")]
+
+[node name="GalleryText" type="Label3D" parent="Gallery" unique_id=1832083602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88918954, -0.15142488)
+visible = false
+text = "Press E to interact"
+font = ExtResource("9_huxnl")
+
+[node name="InGalleryText" type="Label3D" parent="Gallery" unique_id=2016854838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88918954, -0.15142488)
+visible = false
+text = "Browse with <- and ->, 
+
+Press ENTER to select"
+font = ExtResource("9_huxnl")
+
+[node name="GalleryArea" type="Area3D" parent="." unique_id=1046965402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.263207)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GalleryArea" unique_id=794327385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.65167)
+shape = SubResource("BoxShape3D_klaxv")
+
+[node name="Scanner" type="Node3D" parent="." unique_id=2103002708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7708721, 0, 4.1670337)
+
+[node name="ScanArea" type="Area3D" parent="Scanner" unique_id=129033853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.87393737)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scanner/ScanArea" unique_id=1107771146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17114258, -0.33642578, -0.05987978)
+shape = SubResource("BoxShape3D_kfi5f")
+
+[node name="ScanMesh" type="MeshInstance3D" parent="Scanner" unique_id=1959026425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3174278, 0)
+mesh = SubResource("CylinderMesh_5nxdn")
+
+[node name="Screen" type="Node3D" parent="Scanner" unique_id=1090834571]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.85605294, 0, 0.98949766)
+
+[node name="ScreenMesh" type="MeshInstance3D" parent="Scanner/Screen" unique_id=2130430628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.144952, 0, 0.37715054)
+mesh = SubResource("QuadMesh_5nxdn")
+
+[node name="SubViewport" type="SubViewport" parent="Scanner/Screen" unique_id=92903388]
+disable_3d = true
+render_target_update_mode = 4
+
+[node name="UI" type="Control" parent="Scanner/Screen/SubViewport" unique_id=237037081]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="ColorRect" type="ColorRect" parent="Scanner/Screen/SubViewport/UI" unique_id=2071477435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ResultLabel" type="Label" parent="Scanner/Screen/SubViewport/UI" unique_id=1881290441]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_huxnl")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ScannerText" type="Label3D" parent="Scanner" unique_id=1459742583]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.4346087, 0.84746, 0.03744316)
+visible = false
+text = "Press E to scan the image"
+font = ExtResource("9_huxnl")
+
+[node name="FogVolume" type="FogVolume" parent="Scanner" unique_id=167627714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0026664734, 0.02935791, -0.00038528442)
+size = Vector3(0.6370163, 0.7149658, 0.6333084)
+shape = 2
+material = SubResource("FogMaterial_huxnl")
+
+[node name="Room" type="Node3D" parent="." unique_id=1102973813]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Room" unique_id=396040168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22124314, 0)
+use_collision = true
+size = Vector3(10, 3.916504, 10)
+material = SubResource("StandardMaterial3D_c7mib")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Room/CSGBox3D" unique_id=1025401834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0063171387, 0.48132324, 0.08459473)
+operation = 2
+use_collision = true
+size = Vector3(9.528992, 2.8337402, 9.394287)
+material = SubResource("StandardMaterial3D_c7mib")
+
+[node name="ScanCapsule" parent="Room" unique_id=1805560849 instance=ExtResource("9_35usl")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0.7708721, 0, 4.1688094)
+
+[node name="lights" type="Node3D" parent="Room" unique_id=989090231]
+
+[node name="neon" type="CSGCylinder3D" parent="Room/lights" unique_id=1095573768]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1.667026, 0)
+radius = 0.03
+height = 1.0
+material = SubResource("StandardMaterial3D_huxnl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/lights/neon" unique_id=1777764193]
+
+[node name="neon2" type="CSGCylinder3D" parent="Room/lights" unique_id=693786007]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.5, 1.667, 0)
+radius = 0.03
+height = 1.0
+material = SubResource("StandardMaterial3D_huxnl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/lights/neon2" unique_id=1011813209]
+
+[node name="neon3" type="CSGCylinder3D" parent="Room/lights" unique_id=1529129992]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.5, 1.667, 0)
+radius = 0.03
+height = 1.0
+material = SubResource("StandardMaterial3D_huxnl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/lights/neon3" unique_id=1807940430]
+
+[node name="neon4" type="CSGCylinder3D" parent="Room/lights" unique_id=370220294]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1.667026, -2.1854963)
+radius = 0.03
+height = 1.0
+material = SubResource("StandardMaterial3D_huxnl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/lights/neon4" unique_id=609979278]
+
+[node name="neon5" type="CSGCylinder3D" parent="Room/lights" unique_id=616361285]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.5, 1.667, -2.1854963)
+radius = 0.03
+height = 1.0
+material = SubResource("StandardMaterial3D_huxnl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/lights/neon5" unique_id=1075289264]
+
+[node name="neon6" type="CSGCylinder3D" parent="Room/lights" unique_id=1875875468]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.5, 1.667, -2.1854963)
+radius = 0.03
+height = 1.0
+material = SubResource("StandardMaterial3D_huxnl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/lights/neon6" unique_id=306171689]
+
+[node name="neon7" type="CSGCylinder3D" parent="Room/lights" unique_id=1488165533]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1.667026, 3.3787527)
+radius = 0.03
+height = 1.0
+material = SubResource("StandardMaterial3D_huxnl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/lights/neon7" unique_id=1983793976]
+
+[node name="neon8" type="CSGCylinder3D" parent="Room/lights" unique_id=1829458784]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.5, 1.667, 3.3787527)
+radius = 0.03
+height = 1.0
+material = SubResource("StandardMaterial3D_huxnl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/lights/neon8" unique_id=609655264]
+
+[node name="neon9" type="CSGCylinder3D" parent="Room/lights" unique_id=1768075545]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.5, 1.667, 3.3787527)
+radius = 0.03
+height = 1.0
+material = SubResource("StandardMaterial3D_huxnl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room/lights/neon9" unique_id=231608159]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=576671119]
+environment = SubResource("Environment_5gw0g")
+
+[connection signal="body_entered" from="GalleryArea" to="." method="_on_gallery_area_body_entered"]
+[connection signal="body_exited" from="GalleryArea" to="." method="_on_gallery_area_body_exited"]
+[connection signal="body_entered" from="Scanner/ScanArea" to="." method="_on_scan_area_body_entered"]
+[connection signal="body_exited" from="Scanner/ScanArea" to="." method="_on_scan_area_body_exited"]

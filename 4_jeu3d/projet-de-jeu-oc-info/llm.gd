@@ -7,26 +7,59 @@ extends Node3D
 
 @onready var gallery_camera = $GalleryCamera
 @onready var carousel = $Gallery/Carousel
-@onready var gallery_text = $GalleryText
-@onready var in_gallery_text = $InGalleryText
+@onready var gallery_text = $Gallery/GalleryText
+@onready var in_gallery_text = $Gallery/InGalleryText
 
 @onready var scanner = $Scanner
-@onready var result_label = $Scanner/ResultLabel
+@onready var result_label = $Scanner/Screen/SubViewport/UI/ResultLabel
+@onready var scanner_text = $Scanner/ScannerText
+@onready var scan_mesh = $Scanner/ScanMesh
+@onready var viewport = $Scanner/Screen/SubViewport
+@onready var screen_mesh = $Scanner/Screen/ScreenMesh
+@onready var scan_material := preload("res://laser.gdshader")
+
+
 
 var player_near_gallery = false
 var in_gallery_mode = false
 var held_card = null
 
 var player_near_scanner = false
+var scan_shader_material : ShaderMaterial
+var scanning = false
+var scan_running = false
+var scanned_content = ""
+
+func _ready():
+	await get_tree().process_frame
+
+	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+
+	var mat = StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+
+	mat.albedo_texture = viewport.get_texture()
+
+	screen_mesh.material_override = mat
+	
+	scan_shader_material = ShaderMaterial.new()
+	scan_shader_material.shader = scan_material
+
+	scan_mesh.material_override = scan_shader_material
+
+	scan_mesh.visible = false
 
 func _input(event):
 	if event.is_action_pressed("interact"):
-		
-		if player_near_gallery and not in_gallery_mode:
-			enter_gallery_mode()
+		if scanning == false:
+			if player_near_gallery and not in_gallery_mode:
+				enter_gallery_mode()
 
-		elif in_gallery_mode:
-			exit_gallery_mode()
+			elif in_gallery_mode:
+				exit_gallery_mode()
+			
+		if player_near_scanner and held_card != null:
+			place_card_in_scanner(event)
 	
 	if in_gallery_mode and event.is_action_pressed("ui_accept"):
 		select_current_card()
@@ -82,6 +115,10 @@ func _on_gallery_area_body_entered(body):
 
 	if body.name == "Character":
 		player_near_gallery = true
+		if scanning == true:
+			gallery_text.text = "Please wait for the scan to complete"
+		else:
+			gallery_text.text = "Press E to interact"
 		gallery_text.visible = true
 
 
@@ -91,13 +128,16 @@ func _on_gallery_area_body_exited(body):
 		player_near_gallery = false
 		gallery_text.visible = false
 
-func _on_scan_area_area_entered(body):
+func _on_scan_area_body_entered(body):
 	if body.name == "Character":
 		player_near_scanner = true
+		if held_card != null:
+			scanner_text.visible = true
 
-func _on_scan_area_area_exited(body):
+func _on_scan_area_body_exited(body):
 	if body.name == "Character":
 		player_near_scanner = false
+		scanner_text.visible = false
 
 
 func select_current_card():
@@ -119,34 +159,87 @@ func select_current_card():
 	copy_card.scale = Vector3.ONE * 1.5
 
 func place_card_in_scanner(event):
-
-	if held_card == null:
-		return
 	
 	if event.is_action_pressed("interact"):
+		
+		scanning = true
+		
+		for child in scanner.get_children():
+			if child.name.begins_with("ImageCard"):
+				child.free()
+		
 		held_card.get_parent().remove_child(held_card)
+		
 
 		scanner.add_child(held_card)
 
 		held_card.position = Vector3.ZERO
-		held_card.rotation_degrees = Vector3.ZERO
+		held_card.rotation_degrees = Vector3(0, 180, 0)
 		held_card.scale = Vector3.ONE
-
+		
+		scanner_text.visible = false
+		
 		scan_card()
+		
+
+
+
+func scanning_text_loop():
+	var dots = ""
+	
+	while scanning:
+		dots += "."
+		if dots.length() > 3:
+			dots = ""
+		
+		result_label.text = "Scanning" + dots
+		
+		await get_tree().create_timer(0.3).timeout
 
 func scan_card():
 
 	if held_card == null:
 		return
-	else:
-		for i in randi_range(2, 5):
-			result_label.text = "Scanning."
-			await get_tree().create_timer(0.3).timeout
-			result_label.text = "Scanning.."
-			await get_tree().create_timer(0.3).timeout
-			result_label.text = "Scanning..."
-			await get_tree().create_timer(0.3).timeout
 
-		await get_tree().create_timer(2.0).timeout
+	if scan_running:
+		return
 
-		result_label.text = held_card.content
+	scan_running = true
+
+	scanning_text_loop.call_deferred()
+	await animate_scanner()
+
+	scanning = false
+	scan_running = false
+
+	if held_card != null:
+		scanned_content = held_card.content
+		held_card = null
+
+		result_label.text = scanned_content
+
+func animate_scanner():
+
+	var scan = scan_mesh
+
+	scan.visible = true
+
+	# Position de départ
+	scan.position.y = -0.4
+
+	# Active shader
+	scan.material_override = scan_shader_material
+
+	# Tween animation
+	var tween = create_tween()
+
+	tween.tween_property(
+		scan,
+		"position:y",
+		0.4,
+		4
+	)
+
+	await tween.finished
+
+	scan.visible = false

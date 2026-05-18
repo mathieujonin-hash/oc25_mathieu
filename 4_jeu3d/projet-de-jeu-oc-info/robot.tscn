@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cwp4s4vjdx5bi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv0v2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfm56"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cn6f"]
+albedo_color = Color(0, 0.8, 0.8862745, 1)
+emission_enabled = true
+emission = Color(0, 0.8, 0.8862745, 1)
+
+[node name="robot" type="Node3D" unique_id=1622071986]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=20349914]
+operation = 1
+radial_segments = 64
+rings = 64
+material = SubResource("StandardMaterial3D_gv0v2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGSphere3D" unique_id=2068500297]
+operation = 1
+size = Vector3(0.8, 0.8, 0.8)
+material = SubResource("StandardMaterial3D_gv0v2")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGSphere3D" unique_id=1250416690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41521484)
+operation = 2
+size = Vector3(1, 1, 0.032848634)
+material = SubResource("StandardMaterial3D_dfm56")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/CSGBox3D2" unique_id=170463022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.43871224)
+operation = 1
+radial_segments = 64
+rings = 64
+material = SubResource("StandardMaterial3D_gv0v2")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=1487059761]
+transform = Transform3D(0.1, 0, 0, 0, 0.11808683, 0.047376156, 0, -0.11808683, 0.047376156, -0.137, 0.07, 0.36)
+inner_radius = 0.41694894
+sides = 64
+ring_sides = 64
+material = SubResource("StandardMaterial3D_3cn6f")
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="." unique_id=1907331230]
+transform = Transform3D(0.1, 0, 0, 0, 0.11808683, 0.047376156, 0, -0.11808683, 0.047376156, 0.13, 0.07, 0.36)
+inner_radius = 0.41694894
+sides = 64
+ring_sides = 64
+material = SubResource("StandardMaterial3D_3cn6f")
