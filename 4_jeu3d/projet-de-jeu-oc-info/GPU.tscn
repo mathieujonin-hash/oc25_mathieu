@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://pevxi6uqmx1b"]
 
+[ext_resource type="PackedScene" uid="uid://cwp4s4vjdx5bi" path="res://robot.tscn" id="1_tgo4v"]
+[ext_resource type="Script" uid="uid://csy3dhqmsli58" path="res://robot_spawner.gd" id="3_fqpr6"]
+
 [node name="GPU" type="Node3D" unique_id=743234242]
+
+[node name="RobotSpawner" type="Node3D" parent="." unique_id=1578339645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1998057, 0, 0)
+script = ExtResource("3_fqpr6")
+robot_scene = ExtResource("1_tgo4v")
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=1291034154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5389395, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1753752809]
+transform = Transform3D(0.712969, 0, -0.70119554, 0, 1, 0, 0.70119554, 0, 0.712969, -12.028637, 0, 5.356599)
+
+[node name="robot" parent="." unique_id=1622071986 instance=ExtResource("1_tgo4v")]
+
+[node name="Robots" type="Node3D" parent="." unique_id=155626007]

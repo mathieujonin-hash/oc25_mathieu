@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://cwp4s4vjdx5bi"]
 
+[ext_resource type="FontFile" uid="uid://b8dh80wmdflxw" path="res://Inter-VariableFont_opsz,wght.ttf" id="1_3cn6f"]
+[ext_resource type="Script" uid="uid://c5tu4wjfw0l5w" path="res://robot.gd" id="1_dfm56"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv0v2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfm56"]
@@ -12,7 +15,13 @@ emission = Color(0, 0.8, 0.8862745, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhfw1"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ru5oq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xofo"]
+shading_mode = 0
+
 [node name="robot" type="Node3D" unique_id=1622071986]
+script = ExtResource("1_dfm56")
 
 [node name="Head" type="Node3D" parent="." unique_id=1801089179]
 
@@ -94,5 +103,46 @@ material = SubResource("StandardMaterial3D_yhfw1")
 
 [node name="right" type="Node3D" parent="Arms" unique_id=1367637051]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=460908510]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44902456, 2.6727352)
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Arms/right" unique_id=238839106]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0.17613646, -0.7072633, 0.23744354)
+inner_radius = 0.3
+outer_radius = 0.7
+sides = 32
+ring_sides = 24
+material = SubResource("StandardMaterial3D_ru5oq")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Arms/right/CSGTorus3D" unique_id=1121529693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4515142, 0, 0)
+operation = 2
+radius = 2.0
+radial_segments = 48
+rings = 36
+
+[node name="left" type="Node3D" parent="Arms" unique_id=1988328426]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Arms/left" unique_id=80529575]
+transform = Transform3D(-1, 8.742277e-08, 0, -8.444392e-08, -0.96592575, -0.258819, -2.262668e-08, -0.258819, 0.96592575, -0.17, -0.707, 0.237)
+inner_radius = 0.3
+outer_radius = 0.7
+sides = 32
+ring_sides = 24
+material = SubResource("StandardMaterial3D_ru5oq")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Arms/left/CSGTorus3D" unique_id=1073952296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4515142, 0, 0)
+operation = 2
+radius = 2.0
+radial_segments = 48
+rings = 36
+
+[node name="TextHolder" type="Node3D" parent="." unique_id=2120897330]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="TextHolder" unique_id=2015538596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005310178, -0.8009866, 0.64436114)
+size = Vector3(0.6476196, 0.2253418, 0.001)
+material = SubResource("StandardMaterial3D_7xofo")
+
+[node name="Text" type="Label3D" parent="TextHolder" unique_id=1394149172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.79315263, 0.64561695)
+text = "(x; y)"
+font = ExtResource("1_3cn6f")
